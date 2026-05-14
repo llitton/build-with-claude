@@ -34,9 +34,10 @@ Tools, links, communities, prompting patterns, and a glossary of every term that
 
 | Tool | What | Why | Cost |
 |---|---|---|---|
-| [Cursor](https://cursor.com) | AI-first code editor | Recommended for beginners. Chat-driven coding with Claude. | Free tier; Pro $20/mo |
-| [Claude Code](https://www.anthropic.com/claude-code) | Terminal-based AI agent | More powerful, more developer-y. Same Claude. | Pay-per-use via API |
-| [Anthropic Console](https://console.anthropic.com) | Get an API key, monitor usage | Required for any code that calls Claude programmatically | Pay-per-token; pennies for small projects |
+| [Claude Code](https://claude.ai/code) | Terminal-based AI agent | **What this guide teaches.** Anthropic's official agent. You give it a goal, it figures out the steps. Used to build Call Intelligence. | Subscription via Claude.ai (Pro $20/mo) or pay-per-use via API |
+| [Cursor](https://cursor.com) | AI code editor (GUI) | Alternative if you prefer a visual editor over the terminal. Familiar feel if you've ever seen VS Code. | Free tier; Pro $20/mo |
+| [VS Code](https://code.visualstudio.com) | General-purpose code editor | Useful as a "visual companion" alongside Claude Code — see your file tree and read code with syntax highlighting. | Free |
+| [Anthropic Console](https://console.anthropic.com) | Get an API key, monitor usage | Required for any code that *calls* Claude programmatically (your scripts, not your dev tool) | Pay-per-token; pennies for small projects |
 | [OpenRouter](https://openrouter.ai) | One API for many LLMs | Useful when you want to swap models without changing code | Pay-per-token; transparent pricing dashboard |
 
 ### For storing data
@@ -72,7 +73,7 @@ Tools, links, communities, prompting patterns, and a glossary of every term that
 
 | Tool | What | Why | Cost |
 |---|---|---|---|
-| [Tailwind CSS](https://tailwindcss.com) | Utility-first CSS framework | What Cursor/Claude default to. Quick polished UIs. | Free |
+| [Tailwind CSS](https://tailwindcss.com) | Utility-first CSS framework | What Claude defaults to. Quick polished UIs. | Free |
 | [shadcn/ui](https://ui.shadcn.com) | Copy-paste UI components | Most popular React component set. Looks professional out of the box. | Free |
 | [Lucide](https://lucide.dev) | Icon set | Clean, consistent icons. | Free |
 | [Plausible](https://plausible.io) / [PostHog](https://posthog.com) | Privacy-friendly analytics | Know who uses your tool and how | Plausible $9/mo+; PostHog has free tier |
@@ -230,7 +231,7 @@ You don't need to think about this in the 101 or 201. By the time you're in the 
 |---|---|---|
 | Extraction from transcripts (high volume) | Claude Haiku 4.5 | Fast, cheap, good enough for structured extraction |
 | Deduplication judgment (low volume, high stakes) | Claude Sonnet 4.6 | More accurate on subtle "are these the same thing" judgments |
-| Code generation in Cursor | Claude Sonnet 4.6 or Opus 4.7 | Worth paying for the better reasoning |
+| Code generation in Claude Code | Claude Sonnet 4.6 or Opus 4.7 | Worth paying for the better reasoning |
 | Quick one-off chat ("what does this error mean") | Whatever's default | Doesn't matter for ad hoc questions |
 
 These will change as new models ship. Anthropic releases a new model every few months. **The pattern stays the same: cheap-and-fast for high-volume routine work, smart-and-expensive for low-volume judgment work.**

@@ -40,27 +40,36 @@ It's not glamorous. There's no website yet. But it's the moment when you stop do
 
 ---
 
-## Setup (15 minutes)
+## Setup (20 minutes)
 
-You'll install three things. Take your time. If you've never installed developer tools, this part feels disorienting — that's fine, it's a one-time thing.
+You'll install three things and pick up one new mental model. Take your time. If you've never installed developer tools, this part feels disorienting — that's fine, it's a one-time thing.
+
+### A note on the terminal before we start
+
+We're going to use **Terminal** — the text-based interface to your computer. It looks like a black or white window where you type commands and get text back. It's intimidating the first time, and easy after about an hour.
+
+If you've never used Terminal:
+
+- **Mac**: press ⌘+Space, type "Terminal", press Enter. The white window that opens is your terminal.
+- **Windows**: search "PowerShell" or "Windows Terminal" in the Start menu.
+
+You don't need to memorize commands. Claude Code (which you'll install in a moment) will tell you exactly what to type. Your job is to copy, paste, and hit Enter. That's it.
 
 ### 1. Node.js
 
 Node lets you run JavaScript on your computer (instead of just in a web browser). It's the runtime our script will use.
 
 1. Go to [nodejs.org](https://nodejs.org)
-2. Download the **LTS** version (the one labeled "Recommended for Most Users")
+2. Download the **LTS** version (labeled "Recommended for Most Users")
 3. Run the installer. Click through the defaults.
 
-To check it worked: open your **Terminal** app (on Mac: ⌘+Space, type "Terminal", press Enter. On Windows: search "Command Prompt" or "PowerShell").
-
-Type:
+Confirm it worked. In your terminal, type:
 
 ```bash
 node --version
 ```
 
-You should see something like `v20.11.0`. If you see that, you're good. If you see "command not found," try restarting your terminal. If still broken, ask Claude: *"I just installed Node.js but `node --version` shows 'command not found' on [Mac/Windows]. How do I fix this?"*
+You should see something like `v20.11.0`. If you see "command not found," try restarting your terminal. If still broken, ask Claude (in Claude Desktop or claude.ai) — *"I just installed Node.js but `node --version` shows 'command not found' on [Mac/Windows]. How do I fix this?"*
 
 <details markdown="block">
 <summary><strong>Why we need Node at all</strong></summary>
@@ -71,37 +80,63 @@ You don't need to learn JavaScript right now. Claude writes it. You just need th
 
 </details>
 
-### 2. Cursor
+### 2. Claude Code
 
-Cursor is a code editor with Claude built in. Think of it as Claude Desktop, but instead of just chatting, the chat can also read and write files on your computer.
+This is the big one. **Claude Code** is Anthropic's official agent that lives in your terminal. You give it a goal — "build me a script that reads transcripts and extracts feature requests" — and it writes the files, runs the commands, fixes its own mistakes, all from one ongoing conversation. **You are not typing code. You are directing.**
 
-1. Go to [cursor.com](https://cursor.com)
-2. Download for your OS
-3. Install and open it
-4. Sign in (you can use Google)
-5. When asked to install command-line tools, say **yes**
+Install it:
 
-The first time you open Cursor, it'll look intimidating. It's just a code editor — a fancy text editor that knows what programming languages look like. **You won't type code into it.** You'll type into the chat panel on the right side, and Claude will write the code for you.
+1. Go to [claude.ai/code](https://claude.ai/code)
+2. Follow the install instructions for your OS — Anthropic keeps these current, so trust whatever they say there over anything I could write here
+3. Once installed, open a terminal and run:
+
+   ```bash
+   claude
+   ```
+
+4. The first time you run it, it'll open a browser window to sign in with your Anthropic account. Use the same one you used for Claude Desktop in the 101.
+5. After signing in, you should see a prompt waiting for your input.
+
+You're now talking to Claude Code. Try a quick test — type:
+
+> Hi! I'm new to Claude Code. Can you list the files in this directory and tell me what they are, in plain English?
+
+Claude Code will run a command (it'll ask permission first — say yes), then explain what it found.
+
+{: .tip }
+> **Approve actions carefully but generously.** By default Claude Code asks permission before every file write or command. Read what it's about to do, then approve if it makes sense. Over time you'll get a feel for what's safe to approve quickly. **Never blindly approve commands that delete files or change system settings** — but for everyday building (creating new files, running `npm install`, etc.), approval is mostly a formality.
 
 <details markdown="block">
-<summary><strong>Cursor vs. VSCode vs. Claude Code — which should I use?</strong></summary>
+<summary><strong>Claude Code vs. Cursor vs. VS Code — which should I use?</strong></summary>
 
-All three are good. They differ in feel:
+Three popular options for "Claude writes code into my project":
 
-- **Cursor** (recommended for beginners): Looks and feels like a code editor with a chat assistant. The chat is the star. Familiar UI if you've ever seen VSCode.
-- **Claude Code** (CLI, also great): Lives in the terminal. More powerful for agentic work — Claude can run commands, search files, write tests, all on its own. Steeper if you've never used a terminal.
-- **VSCode + Copilot or Claude extensions**: Most flexible but most config.
+- **Claude Code** (recommended, this guide): Terminal-based agent. You give it a goal, it figures out the steps and executes them, asking permission for actions. More powerful for autonomous work. This is what I used to build Call Intelligence.
+- **Cursor**: A code editor (forked from VS Code) with a chat panel. Looks like a fancy text editor with a Claude assistant in a side panel. Friendlier if you've never seen a terminal.
+- **VS Code + Claude extension**: A general-purpose code editor with optional AI extensions. Most flexible, most configuration.
 
-You can switch later. Cursor is the smoothest "start here."
+You can switch later. The 201 teaches Claude Code because that's the tool that produced Call Intelligence. If at any point you find the terminal too painful, Cursor is a smooth alternative — most of the prompts in this guide work identically in either.
 
 </details>
 
-### 3. A Claude API key
+### 3. (Optional) A visual editor for browsing files
 
-The 101 used Claude Desktop, which is included in your Claude.ai subscription. To call Claude from your *own* code, you need an API key. This is how you pay for Claude programmatically — by the token (tiny units of text).
+Claude Code is going to create files in your project. You *can* read them all from the terminal (`cat extract.js`), but it's much nicer to have a visual editor open alongside that shows your file tree and renders code with syntax highlighting.
+
+The simplest is **VS Code**:
+
+1. Go to [code.visualstudio.com](https://code.visualstudio.com)
+2. Download for your OS, install, open
+3. Once you've created a project folder, do **File → Open Folder** and pick it. The file tree appears on the left and you can read files visually.
+
+**You won't type code into VS Code.** Claude Code does the writing. VS Code is just a window into your files.
+
+### 4. A Claude API key
+
+The 101 and Claude Code both use your Claude subscription. To call Claude from *your own code* (which is what our script will do), you need a separate API key from the Anthropic Console. This is how you pay for Claude programmatically — by the token (tiny units of text).
 
 1. Go to [console.anthropic.com](https://console.anthropic.com)
-2. Sign in with the same account you use for Claude.ai
+2. Sign in with the same account you used for Claude.ai
 3. Go to **Settings → Billing** and add a credit card. **Add $5 to start.** That's more than enough for the entire 201.
 4. Go to **Settings → API Keys** and click **Create Key**. Name it `build-with-claude`.
 5. **Copy the key.** It starts with `sk-ant-...`. You'll only see it once.
@@ -125,25 +160,33 @@ For Call Intelligence at LiveSchool, we process hundreds of calls a week and spe
 
 ## The first script (15 minutes)
 
-We're going to make Cursor build us the script. Open Cursor.
+We're going to make Claude Code build us the script. Open Terminal.
 
 ### Make a project folder
 
-1. In Cursor, click **File → Open Folder**
-2. Navigate somewhere sensible (your Desktop is fine), and click **New Folder**
-3. Name it `call-extractor` and open it
+In Terminal, navigate to wherever you want to keep this project (the Desktop is fine), then create the folder and move into it:
 
-You now have an empty project folder open in Cursor.
+```bash
+cd ~/Desktop
+mkdir call-extractor
+cd call-extractor
+```
 
-### Open the chat
+You should now be "in" the new folder. (Confirm by typing `pwd` — you'll see the full path.)
 
-On the right side of Cursor, there's a chat panel. (If you don't see it, click the chat icon in the right sidebar, or press ⌘+L on Mac / Ctrl+L on Windows.)
+### Start Claude Code in that folder
 
-**Make sure the model is set to Claude Sonnet** (the dropdown above the chat input).
+In the same terminal, run:
+
+```bash
+claude
+```
+
+You're now in a Claude Code session, and Claude Code knows your "working directory" is `call-extractor`. Everything it creates will land in this folder.
 
 ### Your first build prompt
 
-Type this into the Cursor chat:
+Type this into Claude Code (paste the whole thing as one message):
 
 > I'm building a simple Node.js script that reads a folder of customer call transcripts (`.txt` files), sends each one to the Claude API, and extracts feature requests as structured data. For now, just write the basics:
 >
@@ -152,7 +195,7 @@ Type this into the Cursor chat:
 >    - For each one, calls the Claude API with a prompt asking for feature requests as JSON
 >    - Writes the combined results to `features.csv`
 > 2. A `package.json` with the right dependencies (`@anthropic-ai/sdk`, `csv-writer`)
-> 3. A `.env` file (with placeholder for the API key) and a `.gitignore` that excludes `.env` and `node_modules`
+> 3. A `.env` file (with a placeholder for the API key) and a `.gitignore` that excludes `.env` and `node_modules`
 > 4. A `README.md` with setup steps
 > 5. A `transcripts/` folder with one sample `.txt` file inside (the ABC Elementary call I'll provide separately)
 >
@@ -160,30 +203,36 @@ Type this into the Cursor chat:
 >
 > Don't write all the code at once. Walk me through it file by file, explaining as you go. I'm new to this.
 
-Send it.
+Hit Enter. Claude Code will start describing what it's going to do, then propose actions one at a time. Each one asks for your approval before running.
 
-Cursor will start writing files in your project. Watch the left sidebar — files will appear. The chat will narrate what it's doing.
+{: .tip }
+> **The single most important habit:** read what Claude Code proposes before approving it. You don't need to understand every line of code. You need to understand the *shape* — what file is this, what does it do, what does each section accomplish. Treat Claude Code like a smart coworker pair-programming with you. Ask "why" liberally.
 
 <div class="image-placeholder" markdown="0">
 <div>
-<strong>Screenshot slot: a real Cursor chat</strong>
-A snapshot of the chat panel will go here — the prompt above on the right, Claude's response writing files on the left, an "Apply" button visible. This is the visual a beginner needs to see: <em>"oh, this is what directing Claude looks like."</em>
+<strong>Screenshot slot: a Claude Code session</strong>
+A real terminal showing a Claude Code prompt, Claude's response describing planned actions, and a permission prompt for the first file write. This is the visual a beginner needs to see: <em>"oh, this is what directing an agent looks like."</em>
 </div>
 </div>
 
-{: .tip }
-> **The single most important habit:** read what Claude is writing as it writes it. You don't need to understand every line. You need to understand the *shape* — what file is this, what does it do, what does each section accomplish. Treat Claude like a smart coworker pair-programming with you. Ask "why" liberally.
+### Watch the files appear
 
-### When Cursor asks to apply changes
+After Claude Code finishes, you should see new files in your folder. Check via Terminal:
 
-Cursor will create files in batches and ask "Apply?" Click **Apply** for each one. This puts the code into your project. You'll see files appear: `extract.js`, `package.json`, `.env`, `.gitignore`, `README.md`, `transcripts/sample-call.txt`.
+```bash
+ls -a
+```
+
+You should see: `extract.js`, `package.json`, `.env`, `.gitignore`, `README.md`, `transcripts/`.
+
+Or — if you set up VS Code earlier — switch to it and open this folder. The file tree on the left shows everything Claude Code just created.
 
 <details markdown="block">
-<summary><strong>What if the code looks different from what I described above?</strong></summary>
+<summary><strong>What if Claude Code wants to do something different from what I described?</strong></summary>
 
-It might. Claude is non-deterministic — same prompt, different runs, slightly different output. **That's okay.** As long as the general shape is right (one main script, a package.json, an env file, a transcripts folder), you're fine.
+It might. Claude Code is non-deterministic — same prompt, different runs, slightly different output. **That's okay.** As long as the general shape is right (one main script, a package.json, an env file, a transcripts folder), you're fine.
 
-If something is wildly wrong — say it wants you to install Python instead of Node, or it builds a totally different feature — just tell it: *"Wait, this isn't what I wanted. Let me clarify: [your clarification]. Please start over."* You won't break anything.
+If something is wildly wrong — say it wants to set up Python instead of Node, or build a totally different feature — just tell it: *"Wait, this isn't what I wanted. Let me clarify: [your clarification]. Please redo the plan."* You won't break anything.
 
 </details>
 
@@ -195,22 +244,20 @@ Now the moment of truth.
 
 ### Put the API key in `.env`
 
-Open the file called `.env` in Cursor. You'll see something like:
+In VS Code (or any text editor), open `.env`. You'll see something like:
 
 ```
 ANTHROPIC_API_KEY=your-key-here
 ```
 
-Replace `your-key-here` with the actual key you copied earlier (starts with `sk-ant-`). Save the file (⌘S / Ctrl+S).
+Replace `your-key-here` with the actual key you copied earlier (starts with `sk-ant-`). Save the file.
 
 {: .warning }
-> **Triple-check:** the `.env` file should be in your `.gitignore`. Open `.gitignore` and confirm `.env` is listed there. If it's not, add it and save. This prevents you from accidentally publishing your API key.
+> **Triple-check** the `.env` file is in your `.gitignore`. Open `.gitignore` and confirm `.env` is listed there. If it's not, add it and save. This prevents you from accidentally publishing your API key.
 
 ### Install dependencies
 
-In Cursor, open the **Terminal** (View → Terminal, or ⌃` on Mac, Ctrl+` on Windows).
-
-Type:
+In Terminal (you can step out of the Claude Code session — Ctrl+C — for a moment if you'd like, or open a new terminal tab):
 
 ```bash
 npm install
@@ -224,7 +271,7 @@ Open `transcripts/sample-call.txt` and paste the ABC Elementary transcript from 
 
 ### Run the script
 
-In the Cursor terminal:
+In Terminal:
 
 ```bash
 node extract.js
@@ -239,7 +286,7 @@ Extracted 4 items.
 Saved features.csv ✓
 ```
 
-Open `features.csv` in Cursor (or double-click it in Finder to open in Excel/Numbers/Google Sheets).
+Open `features.csv` (double-click it in Finder to open in Excel/Numbers/Google Sheets).
 
 **You should see a spreadsheet with four rows** — the three feature requests and the bug from the principal's call. Each one labeled, categorized, with the verbatim quote.
 
@@ -254,14 +301,14 @@ You just built a tool.
 
 It will. Welcome to software.
 
-The pattern for fixing things is the same as the pattern for building things: **describe the problem to Claude in plain English, paste any error messages, ask for help.**
+The pattern for fixing things is the same as the pattern for building things: **describe the problem to Claude Code in plain English, paste any error messages, ask for help.**
 
 Some common ones:
 
 <details markdown="block">
 <summary><strong>"Cannot find module '@anthropic-ai/sdk'"</strong></summary>
 
-You forgot to run `npm install`, or it failed. Run `npm install` again in the Cursor terminal. If it errors, copy the entire error output and paste it into the Cursor chat with: *"I got this error when running npm install. Help me fix it."*
+You forgot to run `npm install`, or it failed. Run `npm install` again in Terminal. If it errors, jump back into Claude Code (`claude` in the same folder) and say: *"I got this error when running npm install. Help me fix it."* Paste the full error.
 
 </details>
 
@@ -279,7 +326,7 @@ Your API key is wrong, expired, or has a typo. Check your `.env` file:
 <details markdown="block">
 <summary><strong>"The script ran but features.csv is empty"</strong></summary>
 
-Open the script in Cursor. Paste the script's content into the chat with: *"My script ran without errors but features.csv is empty. Walk me through where the data goes and what might be wrong."* Claude will diagnose.
+Start a Claude Code session in the project folder (`claude`) and tell it: *"My script ran without errors but features.csv is empty. Walk me through where the data goes and what might be wrong."* Claude Code can read your files and diagnose.
 
 </details>
 
@@ -287,13 +334,14 @@ Open the script in Cursor. Paste the script's content into the chat with: *"My s
 <summary><strong>Generic strategy for any error</strong></summary>
 
 1. Copy the **exact** error message
-2. Paste it into Cursor chat with three pieces of context:
+2. Start a Claude Code session in your project folder (or continue an existing one)
+3. Tell it three things:
    - What you were trying to do
    - What you expected to happen
-   - What actually happened (the error)
-3. Claude will explain the cause and propose a fix
-4. Apply the fix
-5. Try again
+   - What actually happened (paste the error)
+4. Claude Code will read the relevant files, diagnose, and propose a fix
+5. Approve the fix
+6. Try again
 
 This is the entire debugging process. You'll do it dozens of times. It gets faster.
 
@@ -303,7 +351,7 @@ This is the entire debugging process. You'll do it dozens of times. It gets fast
 
 ## Iterate (an hour or two)
 
-Now the script works. Let's make it better. Each of these is a Cursor chat prompt — one at a time, see what changes, run the script, keep what you like.
+Now the script works. Let's make it better. Each of these is a new prompt in a Claude Code session — one at a time, see what changes, run the script, keep what you like.
 
 ### Add real transcripts
 
@@ -311,7 +359,7 @@ Save a few of your own meeting notes, email threads, or calls as `.txt` files. D
 
 ### Pretty-print the console output
 
-Ask Cursor:
+Tell Claude Code:
 
 > When the script finishes, also print a clean summary to the console: how many feature requests, bugs, and feedback items were found, grouped by category. Use simple text, no fancy tables.
 
@@ -319,7 +367,7 @@ You'll have a quick at-a-glance view every time you run it.
 
 ### Deduplicate
 
-This is where it starts to feel like Call Intelligence. Ask:
+This is where it starts to feel like Call Intelligence:
 
 > If two items across different transcripts have similar summaries, group them together. Show the count of mentions in the CSV. Use simple string similarity, not another Claude call — we can upgrade that later.
 
@@ -327,15 +375,11 @@ You'll see things like *"Custom date ranges in reports (mentioned 7 times across
 
 ### Filter
 
-Ask:
-
 > Add a command-line flag `--type=feature_request` so I can run `node extract.js --type=feature_request` and only see feature requests in the CSV. Same for bugs and feedback.
 
 You're learning command-line flags by example. No book required.
 
 ### Save to Google Sheets
-
-Ask:
 
 > Instead of writing to a local CSV, write the results to a Google Sheet I own. Walk me through getting the API access set up.
 
@@ -344,7 +388,7 @@ Now your team can see the output in real time. (This is genuinely useful — man
 <details markdown="block">
 <summary><strong>Each of these is a different way to dig deeper</strong></summary>
 
-What you're doing in this section is *learning by extension*. You took a working thing. You asked for one more feature. You read what Claude wrote. You ran it. You noticed what changed. Repeat.
+What you're doing in this section is *learning by extension*. You took a working thing. You asked for one more feature. You read what Claude Code wrote. You ran it. You noticed what changed. Repeat.
 
 This is the single highest-leverage way to learn to build software. You'll absorb dozens of patterns — how to read environment variables, how to parse command-line arguments, how to compare strings — without ever sitting down to "learn programming." You learn it because you needed it for *this thing you were building right now*.
 
@@ -388,14 +432,14 @@ If those don't apply: you've done it. Use what you built. Come back later.
 
 For when you come back to this page later.
 
-- **Stack**: Cursor (editor) + Node.js (runtime) + Anthropic SDK (API client) + `.env` (secret API key)
+- **Stack**: Claude Code (the AI agent doing the building) + Node.js (runtime for your script) + Anthropic SDK (API client) + `.env` (secret API key) + optionally VS Code (file browser)
 - **Pattern**: Read files → call Claude API → write structured output (CSV, JSON, Sheet)
-- **Debugging mantra**: Paste error → describe context → apply fix → retry
-- **Mindset shift from 101**: You're no longer doing the work yourself. You're directing a tool to do the work. Your job is to describe outcomes, read what Claude writes, and notice when something needs to change.
+- **Debugging mantra**: Paste error → describe context → approve fix → retry
+- **Mindset shift from 101**: You're no longer doing the work yourself. You're directing an agent to do the work. Your job is to describe outcomes, read what Claude Code writes, and notice when something needs to change.
 
 ---
 
 <div style="display: flex; justify-content: space-between; margin-top: 3em;">
 <a href="../101-your-first-ai-tool/">← 101</a>
-<a href="../301-build-the-real-thing/">301 — Build the real thing →</a>
+<a href="../301-build-the-real-thing/">201 — Build the real thing →</a>
 </div>

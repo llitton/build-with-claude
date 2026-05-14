@@ -167,7 +167,7 @@ The first concrete step is replacing the CSV with a real database. This is one w
 
 ### The prompt to direct Claude with
 
-In a fresh Cursor project, type:
+In a new project folder, start a Claude Code session and type:
 
 > I want to turn my 201 script into a Next.js app that writes extracted feature requests to a Supabase Postgres database instead of a CSV file. Before writing any code, do this:
 >
@@ -313,7 +313,7 @@ The first version we shipped was *just* the embedding match with no LLM judgment
 
 ## Phase 5: The polish that makes it feel like a real product
 
-Once the pipeline works, the dashboard becomes the thing you spend time on. This is where Cursor shines — UI tweaks are fast and visual.
+Once the pipeline works, the dashboard becomes the thing you spend time on. This is where Claude Code shines — UI tweaks are a one-line prompt away, and you can hot-reload the browser to see the change instantly.
 
 Prompts you'll find yourself using:
 
@@ -432,7 +432,7 @@ Set a budget alert in your OpenRouter / Anthropic account. Check costs weekly.
 
 You won't think you need them. You'll write the whole app without them. Then you'll change one thing and three unrelated things break and you have no idea why. **TypeScript + a small test suite is the difference between a tool you trust and a tool you rebuild every few months.**
 
-Ask Cursor early: *"Convert this to TypeScript and add basic tests for the extraction parser and the dedup matcher. I want it to be hard to ship a regression."*
+Ask Claude Code early: *"Convert this to TypeScript and add basic tests for the extraction parser and the dedup matcher. I want it to be hard to ship a regression."*
 
 </details>
 
@@ -458,7 +458,7 @@ That's a six-figure piece of software at a startup, give or take. You built it i
 
 For when you come back to this page later.
 
-- **Stack**: Cursor + Next.js + Supabase + Inngest + OpenRouter + Vercel
+- **Stack**: Claude Code + Next.js + Supabase + Inngest + OpenRouter + Vercel
 - **Architecture**: data sources → scheduled extraction → DB (mentions table) → dedup → DB (canonical features) → app
 - **Big mental models**:
   - *Mentions* (raw evidence, one per source event) vs. *canonical features* (deduplicated, owned by humans)

@@ -60,8 +60,8 @@ That weekend I:
 
 1. Asked Claude (in Claude Desktop) to teach me about the Fireflies API
 2. Got a Claude API key from `console.anthropic.com`
-3. Installed Cursor
-4. Asked Cursor to write me a Node script that:
+3. Installed Claude Code
+4. Asked Claude Code to write me a Node script that:
    - Pulled the last 50 Fireflies transcripts via their API
    - Ran each through the same prompt I'd been using by hand
    - Dumped the results into a CSV
@@ -81,14 +81,14 @@ People lost their minds. *"How did you make this? Can we filter by school?"* The
 
 A CSV in Google Sheets is fine for a week. Then people want filters, sorting, the ability to mark features as "shipped" or "in progress," a place to add comments.
 
-I asked Cursor to:
+I asked Claude Code to:
 
 1. Spin up a Next.js app
 2. Use Supabase as the database (replacing the CSV)
 3. Create the basic tables: `features` and `mentions`
 4. Build a one-page dashboard listing features sorted by mention count
 
-This took me about 8 evening-hours total over a week. **I had never touched Next.js or Supabase before.** Cursor walked me through every step.
+This took me about 8 evening-hours total over a week. **I had never touched Next.js or Supabase before.** Claude Code walked me through every step.
 
 By the end:
 
@@ -99,7 +99,7 @@ By the end:
 I posted the URL in #product. Within 48 hours, three different teams were using it.
 
 {: .story }
-> **The lesson:** I had a small panic-attack moment in week two when somebody asked me to "add a way to assign features to product managers." It sounded like a "real software" feature. I assumed it would take me weeks. It took me 45 minutes. Cursor scaffolded a `owner_id` column, a select dropdown, an API route to update it, and the UI to show owners in the dashboard. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
+> **The lesson:** I had a small panic-attack moment in week two when somebody asked me to "add a way to assign features to product managers." It sounded like a "real software" feature. I assumed it would take me weeks. It took me 45 minutes. Claude Code scaffolded a `owner_id` column, a select dropdown, an API route to update it, and the UI to show owners in the dashboard. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
 
 ---
 
@@ -171,9 +171,9 @@ The system was working. Now it had to fit into how the team actually worked.
 - **Status workflow** (new → considering → planned → shipped)
 - **Customer-facing announcements** for shipped features
 
-Each of these was one to three evenings. The codebase had grown to maybe 5,000 lines but felt manageable because I knew the shape — I could ask Cursor to find the right file and modify it, and it could.
+Each of these was one to three evenings. The codebase had grown to maybe 5,000 lines but felt manageable because I knew the shape — I could ask Claude Code to find the right file and modify it, and it could.
 
-This phase taught me the most about code organization. Earlier I had everything jammed in one folder; refactoring it into `lib/call-intelligence/{fireflies, hubspot, intercom, gmail, slack, features, nps, autopilot}/` happened during this phase, mostly at Cursor's suggestion.
+This phase taught me the most about code organization. Earlier I had everything jammed in one folder; refactoring it into `lib/call-intelligence/{fireflies, hubspot, intercom, gmail, slack, features, nps, autopilot}/` happened during this phase, mostly at Claude Code's suggestion.
 
 ---
 
@@ -200,7 +200,7 @@ I spent the first weekend on a beautiful dashboard with data that didn't fit it.
 
 ### 2. Set up TypeScript and tests on day one
 
-I didn't. I told myself "I'll add them later when it matters." That was wrong. By the time it mattered, retrofitting them was painful. **Ask Cursor to scaffold TypeScript + a basic test setup as part of your initial project structure.** It's two prompts. It'll save you a month of confidence-erosion later.
+I didn't. I told myself "I'll add them later when it matters." That was wrong. By the time it mattered, retrofitting them was painful. **Ask Claude Code to scaffold TypeScript + a basic test setup as part of your initial project structure.** It's two prompts. It'll save you a month of confidence-erosion later.
 
 ### 3. Build the "what's broken right now" view before you have things break
 
@@ -212,7 +212,7 @@ I spent a long time tweaking similarity thresholds based on "what feels right." 
 
 ### 5. Don't put off the integrations that scare you
 
-I dragged my feet on HubSpot for two weeks because their API documentation was confusing. When I finally sat down with Cursor and asked it to walk through the doc, the integration was done in three hours. **Things look scarier from the outside than they are from the inside, every time.**
+I dragged my feet on HubSpot for two weeks because their API documentation was confusing. When I finally sat down with Claude Code and asked it to walk through the doc, the integration was done in three hours. **Things look scarier from the outside than they are from the inside, every time.**
 
 ---
 
@@ -222,7 +222,7 @@ Three things:
 
 1. **The hardest part is starting.** Two weeks of pasting transcripts into Claude Desktop by hand is what told me what to build. If I'd skipped that I would have built the wrong thing.
 
-2. **Direction beats expertise.** I am not a software engineer. Cursor and Claude wrote essentially all the code. My job was to know what I wanted and to recognize when the output was wrong. That's a skill anyone can learn.
+2. **Direction beats expertise.** I am not a software engineer. Claude Code wrote essentially all the code. My job was to know what I wanted and to recognize when the output was wrong. That's a skill anyone can learn.
 
 3. **Internal tools are the right starting place.** Don't try to build the next Notion. Build the thing your own team needs that's currently a manual Google Sheet. Internal tools have a forgiving user base (your coworkers), a defined problem (the manual thing they hate), and a fast feedback loop (you sit next to them). **They're the perfect on-ramp.**
 
