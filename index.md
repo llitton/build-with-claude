@@ -91,4 +91,4 @@ Ready? [Start with the 101 →](docs/101-your-first-ai-tool/){: .btn .btn-primar
 
 ---
 
-<small>Source for this guide and Call Intelligence are both on <a href="https://github.com/lauralitton">GitHub</a>. Questions? Open an issue.</small>
+<small>Source for this guide and Call Intelligence are both on <a href="https://github.com/llitton">GitHub</a>. Questions? Open an issue.</small>

@@ -1,6 +1,6 @@
 # Build With Claude
 
-Source for [lauralitton.github.io/build-with-claude](https://lauralitton.github.io/build-with-claude) — a beginner's guide to building real AI tools by talking to Claude.
+Source for [llitton.github.io/build-with-claude](https://llitton.github.io/build-with-claude) — a beginner's guide to building real AI tools by talking to Claude.
 
 Site structure:
 
@@ -43,7 +43,7 @@ git init
 git add .
 git commit -m "Initial: build-with-claude site"
 git branch -M main
-git remote add origin https://github.com/lauralitton/build-with-claude.git
+git remote add origin https://github.com/llitton/build-with-claude.git
 git push -u origin main
 ```
 
@@ -58,7 +58,7 @@ git push -u origin main
 Your site will be live at:
 
 ```
-https://lauralitton.github.io/build-with-claude/
+https://llitton.github.io/build-with-claude/
 ```
 
 GitHub Pages will rebuild automatically every time you push to `main`. Total deploy time: ~30 seconds per change after the first build.
@@ -219,4 +219,4 @@ Edit live at [mermaid.live](https://mermaid.live) and paste in.
 Content: CC-BY-4.0 (share freely with attribution).
 Site code: MIT.
 
-Built by [Laura Litton](https://github.com/lauralitton).
+Built by [Laura Litton](https://github.com/llitton).

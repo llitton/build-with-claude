@@ -1,7 +1,7 @@
 title: Build With Claude
 description: A complete beginner's guide to building real AI tools by talking to Claude. Featuring the story of Call Intelligence.
 remote_theme: just-the-docs/just-the-docs
-url: https://lauralitton.github.io
+url: https://llitton.github.io
 baseurl: /build-with-claude
 
 # Color scheme — light, clean, approachable
@@ -21,11 +21,11 @@ search:
 # Aux nav (top right)
 aux_links:
   "View on GitHub":
-    - "https://github.com/lauralitton/build-with-claude"
+    - "https://github.com/llitton/build-with-claude"
 aux_links_new_tab: true
 
 # Footer
-footer_content: "Built by <a href='https://github.com/lauralitton'>Laura Litton</a>. Source on <a href='https://github.com/lauralitton/build-with-claude'>GitHub</a>. Powered by <a href='https://just-the-docs.com'>Just the Docs</a>."
+footer_content: "Built by <a href='https://github.com/llitton'>Laura Litton</a>. Source on <a href='https://github.com/llitton/build-with-claude'>GitHub</a>. Powered by <a href='https://just-the-docs.com'>Just the Docs</a>."
 
 # Heading anchor links
 heading_anchors: true
