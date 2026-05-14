@@ -246,6 +246,13 @@ This is the big jump. So far the script only runs when someone pastes a transcri
 
 Inngest's developer experience is great — there's a local dev UI that shows every job run, every input, every output. **You'll spend a lot of time in this UI.** It's how you debug your scheduled jobs.
 
+<div class="image-placeholder" markdown="0">
+<div>
+<strong>Screenshot slot: the Inngest function dashboard</strong>
+A snapshot of the Call Intelligence Fireflies-sync function will go here — the list of scheduled runs, timestamps, durations, success/failure indicators. Shows "this actually runs automatically in the cloud" — the conceptual leap most 201→301 readers need to see to believe.
+</div>
+</div>
+
 <details markdown="block">
 <summary><strong>The pattern: "sync state" tables</strong></summary>
 

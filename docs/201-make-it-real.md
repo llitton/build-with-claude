@@ -164,6 +164,13 @@ Send it.
 
 Cursor will start writing files in your project. Watch the left sidebar — files will appear. The chat will narrate what it's doing.
 
+<div class="image-placeholder" markdown="0">
+<div>
+<strong>Screenshot slot: a real Cursor chat</strong>
+A snapshot of the chat panel will go here — the prompt above on the right, Claude's response writing files on the left, an "Apply" button visible. This is the visual a beginner needs to see: <em>"oh, this is what directing Claude looks like."</em>
+</div>
+</div>
+
 {: .tip }
 > **The single most important habit:** read what Claude is writing as it writes it. You don't need to understand every line. You need to understand the *shape* — what file is this, what does it do, what does each section accomplish. Treat Claude like a smart coworker pair-programming with you. Ask "why" liberally.
 

@@ -95,6 +95,10 @@ For the 201/301 reader who's actually building things:
 - **[Just enough TypeScript](https://www.totaltypescript.com/)** by Matt Pocock — Free intros that actually click.
 - **[The Pragmatic Engineer](https://www.pragmaticengineer.com/)** — Newsletter on how real software teams work. Read it to understand the industry around you.
 
+For the CS leader thinking about *why* this tool exists in the first place:
+
+- **[How to Create an Effective Feedback Loop Between Customer Success and Product Teams](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams)** ([Gain Grow Retain](https://gaingrowretain.com)) — The practitioner's frame for what Call Intelligence solves. If you're a CS leader thinking "this could fix our product-feedback problem," start here for the broader pattern, then come back for the implementation.
+
 ---
 
 ## Communities
