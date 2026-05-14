@@ -1,0 +1,29 @@
+// Custom tweaks for the Build With Claude site.
+// Loaded automatically by Just the Docs at the end of its SCSS pipeline.
+
+// Slightly wider content area for readability on long pages
+.main-content {
+  max-width: 900px;
+}
+
+// Make the .story callout (used for "From the build" boxes) stand out a bit more
+.callout.callout-story {
+  border-left-width: 4px;
+}
+
+// A bit more breathing room around code blocks
+.main-content pre {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+// Mermaid diagrams: center and add a bit of padding
+.mermaid {
+  text-align: center;
+  padding: 1em 0;
+}
+
+// Make the hero buttons feel a bit more prominent on the home page
+.btn-primary {
+  font-weight: 500;
+}
