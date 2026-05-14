@@ -150,8 +150,8 @@ That conversation led to the two-stage approach described in [the 301 page](../3
 
 The triage UI was the unexpectedly satisfying part. I'd sit down with a coffee, click through 20 candidate pairs, and the dashboard would compress by 200 mentions. Every session made the data cleaner.
 
-![Placeholder: screenshot of the dedup triage UI](../assets/images/case-study-dedupe-triage-placeholder.png)
-*Add screenshot here: the dedup triage UI. Two cards side by side. Three buttons: merge, keep separate, skip.*
+![Feature Request Deduplication UI: two similar features side by side with Merge, Keep Separate, and Skip buttons](../assets/images/dedupe-triage.png)
+*The triage UI in action. Each pair shows similarity score, account/mention counts, and three decisions: merge them, keep them separate, or skip for later.*
 
 {: .story }
 > **The lesson:** I tried to be clever first. My initial dedup attempt was "ask Claude to look at every new mention and pick the matching feature from a list of 500 options." It was slow ($$$) and wrong (it would invent matches that weren't there). Embedding-based pre-filtering — boring, mechanical, well-understood — outperformed the clever version by every metric. **The boring solution usually wins.**
@@ -164,6 +164,9 @@ The system was working. Now it had to fit into how the team actually worked.
 
 - **Slack notifications** when a feature crosses 5, 10, or 25 mentions
 - **Email integration** so the team could send "we shipped what you asked for" announcements directly from the feature detail page
+
+![Slack notification from the LiveSchool Call Intelligence bot showing two new feature requests with source quotes and context](../assets/images/slack-feature-alert.png)
+*The product team's #feature-requests channel. Every new request lands here automatically with the customer's verbatim quote and a link back to the dashboard.*
 - **Owner assignment** so each feature has a product manager attached
 - **Status workflow** (new → considering → planned → shipped)
 - **Customer-facing announcements** for shipped features
