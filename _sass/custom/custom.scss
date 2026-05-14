@@ -166,6 +166,89 @@ $danger-red: #ef4444;
   }
 }
 
+// ----- Stat strip (hero proof points) -----
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0 2.5rem 0;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, rgba(111, 113, 238, 0.06), rgba(16, 30, 87, 0.04));
+  border-radius: 10px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $brand-navy;
+  line-height: 1;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.3;
+  text-transform: none;
+}
+
+// ----- Hero image (above-the-fold dashboard preview) -----
+.hero-image {
+  margin: 1.5rem 0 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.hero-image-caption {
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-align: center;
+  margin: 0.75rem 0 0 0;
+  font-style: italic;
+}
+
+// ----- Pull quote (large italic line that breaks up text) -----
+.pull-quote {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: italic;
+  color: $brand-navy;
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid $brand-purple;
+  line-height: 1.4;
+}
+
+// ----- Hero CTA (bigger buttons on the home page) -----
+.hero-ctas {
+  margin: 1.5rem 0 2rem 0;
+}
+
+.hero-ctas .btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.hero-ctas .btn-primary {
+  box-shadow: 0 4px 14px rgba(111, 113, 238, 0.3);
+}
+
 // ----- Image placeholder (for screenshots not yet provided) -----
 .image-placeholder {
   display: flex;
