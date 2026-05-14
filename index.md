@@ -61,8 +61,8 @@ Inside each layer, anything you don't want to read is hidden behind a toggle. Th
 
 Here's the tool we're building toward. Don't worry about understanding it yet — this is just so you can see the destination.
 
-![Call Intelligence dashboard screenshot placeholder](assets/images/dashboard-placeholder.png)
-*A screenshot of the live dashboard goes here. (Coming soon.)*
+![The Call Intelligence dashboard — feature requests sorted by mention count](assets/images/dashboard-hero.png)
+*The live dashboard. Each row is a deduplicated feature request with a count of how many times customers have asked for it.*
 
 **The flow, in plain English:**
 

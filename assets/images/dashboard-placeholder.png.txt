@@ -1,2 +1,0 @@
-This is a placeholder. The site references `dashboard-placeholder.png` on the home page.
-Replace this file (rename your screenshot to `dashboard-placeholder.png` and drop it in this folder) when ready.

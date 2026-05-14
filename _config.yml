@@ -66,3 +66,5 @@ exclude:
   - node_modules
   - vendor
   - README.md
+  - assets/images/README.md
+  - incoming/
