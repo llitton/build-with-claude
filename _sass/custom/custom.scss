@@ -10,7 +10,15 @@ $danger-red: #ef4444;
 
 // ----- Layout tweaks -----
 .main-content {
-  max-width: 920px;
+  max-width: 1080px;
+}
+
+// Home page can breathe a bit wider — the level cards and stat strip benefit
+// from more room. We detect the home page by the permalink "/" rendering to a
+// layout where the page has no `nav_order` parent path. Cleanest hook is the
+// hero presence:
+.main-content:has(.byline) {
+  max-width: 1200px;
 }
 
 .callout.callout-story {
@@ -81,12 +89,13 @@ $danger-red: #ef4444;
 // ----- Level cards (101/201/301 tiles on home page) -----
 .level-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
   margin: 2rem 0;
 }
 
 .level-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
@@ -94,13 +103,24 @@ $danger-red: #ef4444;
   border: 1px solid #e5e7eb;
   border-top: 4px solid #e5e7eb;
   border-radius: 8px;
-  text-decoration: none !important;
-  color: inherit !important;
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+}
+
+// Stretched link — makes the entire card clickable via the trailing CTA anchor
+.level-card .level-card-cta {
+  text-decoration: none !important;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: pointer;
   }
 }
 
@@ -129,6 +149,8 @@ $danger-red: #ef4444;
   margin: 0 0 0.5rem 0 !important;
   font-size: 1.125rem !important;
   font-weight: 600;
+  color: $brand-navy;
+  line-height: 1.3;
 }
 
 .level-card-meta {

@@ -55,28 +55,28 @@ I'm the VP of Success at an EdTech company. A year ago, I'd never written a real
 
 The guide is layered. Pick the layer that matches your patience and ambition right now. You can come back for the next one whenever.
 
-<div class="level-cards">
-  <a class="level-card level-card-101" href="docs/101-your-first-ai-tool/">
+<div class="level-cards" markdown="0">
+  <div class="level-card level-card-101">
     <span class="level-card-badge">101 · Beginner</span>
-    <h3 class="level-card-title">Your first AI tool</h3>
-    <p class="level-card-meta">⏱ 30 minutes &nbsp;·&nbsp; Never used Claude</p>
-    <p class="level-card-outcome">A working AI extraction running in Claude Desktop on a real call transcript. You'll know whether this is worth more of your time.</p>
-    <p class="level-card-cta">Start here →</p>
-  </a>
-  <a class="level-card level-card-201" href="docs/201-make-it-real/">
+    <div class="level-card-title">Your first AI tool</div>
+    <div class="level-card-meta">⏱ 30 minutes &nbsp;·&nbsp; Never used Claude</div>
+    <div class="level-card-outcome">A working AI extraction running in Claude Desktop on a real call transcript. You'll know whether this is worth more of your time.</div>
+    <a class="level-card-cta" href="docs/101-your-first-ai-tool/">Start here →</a>
+  </div>
+  <div class="level-card level-card-201">
     <span class="level-card-badge">201 · Intermediate</span>
-    <h3 class="level-card-title">Make it real</h3>
-    <p class="level-card-meta">⏱ A weekend &nbsp;·&nbsp; Has a GitHub account</p>
-    <p class="level-card-outcome">A tiny app running on your laptop. Paste a transcript in one side, see a clean table of feature requests come out the other.</p>
-    <p class="level-card-cta">Read 201 →</p>
-  </a>
-  <a class="level-card level-card-301" href="docs/301-build-the-real-thing/">
+    <div class="level-card-title">Make it real</div>
+    <div class="level-card-meta">⏱ A weekend &nbsp;·&nbsp; Has a GitHub account</div>
+    <div class="level-card-outcome">A tiny app running on your laptop. Paste a transcript in one side, see a clean table of feature requests come out the other.</div>
+    <a class="level-card-cta" href="docs/201-make-it-real/">Read 201 →</a>
+  </div>
+  <div class="level-card level-card-301">
     <span class="level-card-badge">301 · Advanced</span>
-    <h3 class="level-card-title">Build the real thing</h3>
-    <p class="level-card-meta">⏱ A few weeks &nbsp;·&nbsp; Wants the full thing</p>
-    <p class="level-card-outcome">Your own deployed version of Call Intelligence. Real database, scheduled jobs, live dashboard, real users.</p>
-    <p class="level-card-cta">Read 301 →</p>
-  </a>
+    <div class="level-card-title">Build the real thing</div>
+    <div class="level-card-meta">⏱ A few weeks &nbsp;·&nbsp; Wants the full thing</div>
+    <div class="level-card-outcome">Your own deployed version of Call Intelligence. Real database, scheduled jobs, live dashboard, real users.</div>
+    <a class="level-card-cta" href="docs/301-build-the-real-thing/">Read 301 →</a>
+  </div>
 </div>
 
 Inside each layer, anything you don't want to read is hidden behind a toggle. The visible path is short. The deep path is one click away.
@@ -85,19 +85,29 @@ Inside each layer, anything you don't want to read is hidden behind a toggle. Th
 
 ## Why this exists
 
-Every customer success team is sitting on a goldmine of product feedback they can't quite use. Calls happen. Customers ask for things. The CS rep promises to "pass it along." Sometimes it gets to product. Usually it gets lost — buried in a Slack thread, mentioned once in a 1:1, or summarized into oblivion by the time anyone with priority-setting authority hears it.
+In May 2023, I wrote [a blog post for Gain Grow Retain](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams) about how to build a working feedback loop between Customer Success and Product teams.
+
+The short version: when I started as Director of Success at LiveSchool, our system for tracking customer feature requests was a mess of Airtable rows, Intercom tags, and gut-feel anecdotes. The Product team couldn't tell which features were actually being asked for most often. The Success team couldn't tell what was in the pipeline. **No one had a real signal — just noise.**
+
+So I got us onto [Canny.io](https://canny.io), set up a monthly cadence with Product, and pulled everyone — Success, Sales, Marketing — into the habit of logging requests in one place. The article walks through the five things that mattered: centralize requests, establish clear meeting cadences, choose the right tool, train people on it, and add prioritization beyond raw vote counts.
+
+Canny worked. It still works.
 
 <div class="context-box" markdown="1">
 
-**The broader context**
+**The bottleneck Canny didn't solve**
 
-This is the classic CS↔Product feedback loop problem. [Gain Grow Retain has a great primer on it](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams) — the short version is: when customer-facing teams and product teams aren't tightly connected, customers shout requests in, insights come out at random, and product prioritization ends up based on the loudest internal voice rather than the data.
+A central repository only helps if the requests actually make it in. Sales hears something on a demo. Support gets it in a chat. The CS team learns about it on a renewal call. Unless someone remembers to log it — *and finds the right ticket, and writes a clean summary, and tags it correctly* — it's gone.
 
-**Call Intelligence is a concrete answer to that question.** It's the implementation behind "create a structured feedback loop." Built by a CS leader, for a CS team, with evidence flowing straight from every customer conversation into a product-facing dashboard.
+Years into running that system, I watched it get partly skipped every single week. Not because anyone was lazy. Because logging feedback into a separate tool, in the middle of a customer conversation, just isn't where humans put their energy.
 
 </div>
 
-This guide is how you build your own version — even if you've never written code before.
+**Call Intelligence is the next version of that feedback loop.** Instead of asking humans to manually log feature requests, it reads every customer conversation automatically — Fireflies transcripts, HubSpot emails, Intercom chats, NPS surveys — and uses Claude to extract every request, label it, deduplicate it against past mentions, and put it in front of the Product team with verbatim evidence.
+
+The bottleneck moves from *"do humans remember to log this?"* to *"do customers say it at all?"* — which is a much smaller, much more solvable problem.
+
+This guide is how you build your own version, even if you've never written code before.
 
 ---
 

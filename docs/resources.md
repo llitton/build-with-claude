@@ -98,7 +98,7 @@ For the 201/301 reader who's actually building things:
 
 For the CS leader thinking about *why* this tool exists in the first place:
 
-- **[How to Create an Effective Feedback Loop Between Customer Success and Product Teams](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams)** ([Gain Grow Retain](https://gaingrowretain.com)) — The practitioner's frame for what Call Intelligence solves. If you're a CS leader thinking "this could fix our product-feedback problem," start here for the broader pattern, then come back for the implementation.
+- **[How to Create an Effective Feedback Loop Between Customer Success and Product Teams](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams)** — I wrote this for [Gain Grow Retain](https://gaingrowretain.com) in 2023, back when I was Director of Success at LiveSchool. It walks through the manual playbook we built using [Canny.io](https://canny.io) — centralizing requests, setting a monthly cadence with Product, training the whole company to log things in one place. **Read this first for the human-driven version of the feedback loop, then come back here for the automated next step.**
 
 ---
 
