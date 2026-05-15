@@ -201,7 +201,7 @@ Now your output looks like real production data. School name, type, summary, det
 
 You designed a data schema. Without knowing what a data schema is.
 
-A "schema" is just "the shape of the data", what fields exist, what types they are. Every database, every API, every spreadsheet has one. You usually have to design it up front, on paper, before you build anything. With Claude, you can design it iteratively by looking at examples and saying "add this field, remove that one, rename this."
+A "schema" is just "the shape of the data": what fields exist, what types they are. Every database, every API, every spreadsheet has one. You usually have to design it up front, on paper, before you build anything. With Claude, you can design it iteratively by looking at examples and saying "add this field, remove that one, rename this."
 
 This is a recurring pattern: **design by example.** You'll do it over and over as you build real software with Claude. Show it something concrete. React. Refine.
 
@@ -220,7 +220,7 @@ Some ideas:
 - **Paste customer reviews from a Google Maps listing.** Ask for sentiment, recurring praise, recurring complaints.
 - **Paste a contract.** Ask for every dollar amount, every date, and every obligation.
 
-For each one, you're doing exactly what Call Intelligence does, turning unstructured text into structured data. The only difference between "an experiment in Claude" and "a real tool" is whether it runs once, by hand, or automatically, in the background, every day.
+For each one, you're doing exactly what Call Intelligence does: turning unstructured text into structured data. The only difference between "an experiment in Claude" and "a real tool" is whether it runs once by hand, or automatically in the background, every day.
 
 **That gap is what 201 and 301 close.**
 
@@ -232,7 +232,7 @@ Take a second to appreciate this.
 
 You took a 700-word conversation. You wrote one prompt. You got back clean, labeled, structured data with evidence. **You did data extraction.** That's a thing engineers used to spend weeks building bespoke code for. You did it in two minutes by typing what you wanted.
 
-The reason this matters: most of the value in software is *not* in the fancy parts. It's in things exactly like this, taking messy input, turning it into structured output, doing something useful with it. Once you can do that, you can build most "internal tools" any company needs.
+The reason this matters: most of the value in software is *not* in the fancy parts. It's in things exactly like this. Taking messy input. Turning it into structured output. Doing something useful with it. Once you can do that, you can build most "internal tools" any company needs.
 
 Call Intelligence is just this, scaled up.
 

@@ -136,7 +136,7 @@ Call Intelligence uses both:
 <details markdown="block">
 <summary><strong>What about Inngest, Trigger.dev, AWS Lambda?</strong></summary>
 
-These are "real" job-orchestration platforms, they add retries, parallel execution, dependency graphs, observability UIs, dead-letter queues. Useful when your scheduled work gets complex.
+These are "real" job-orchestration platforms. They add retries, parallel execution, dependency graphs, observability UIs, dead-letter queues. Useful when your scheduled work gets complex.
 
 **Call Intelligence doesn't use any of them.** Vercel Cron + plain Next.js routes was enough. We do use [Inngest](https://www.inngest.com) elsewhere in Base Camp for CRM-side workflows (deal sync, task reminders, weekly reports) where the retry/observability story matters more. But for "fetch new calls every 6 hours and run extraction," Vercel Cron is the lowest-overhead option that gets the job done.
 
@@ -146,7 +146,7 @@ If you find yourself needing retries that survive cron restarts, or one job that
 
 ### 4. The LLM gateway (OpenRouter)
 
-Your 201 script called Anthropic's API directly. That's fine, for one model, one provider. **OpenRouter** sits in front of every major LLM provider (Anthropic, OpenAI, Google, Meta, Mistral, etc.) and gives you one API that talks to all of them. You can swap models with a one-line change.
+Your 201 script called Anthropic's API directly. That's fine for one model, one provider. **OpenRouter** sits in front of every major LLM provider (Anthropic, OpenAI, Google, Meta, Mistral, etc.) and gives you one API that talks to all of them. You can swap models with a one-line change.
 
 <details markdown="block">
 <summary><strong>Why a gateway instead of Anthropic direct</strong></summary>
@@ -196,11 +196,11 @@ That's a real app. You can show it to a coworker.
 <details markdown="block">
 <summary><strong>What the Call Intelligence schema actually looks like</strong></summary>
 
-For reference (don't copy exactly, your needs differ, but useful to see the real shape):
+For reference (don't copy exactly; your needs differ, but it's useful to see the real shape):
 
-- `ci_feature_requests`, canonical deduplicated features. Columns: `id`, `summary`, `detail`, `category`, `status` ("new", "in_progress", "shipped"), `owner_id`, `created_at`, `updated_at`.
-- `ci_feature_request_mentions`, every individual mention. Columns: `id`, `feature_request_id` (FK), `source` ("fireflies", "hubspot", "intercom", "nps"), `source_id`, `customer_company`, `customer_email`, `quote`, `urgency`, `created_at`.
-- `ci_feature_dedupe_candidates`, pairs of features the matching algorithm thinks might be duplicates, awaiting human review. Columns: `id`, `feature_a_id`, `feature_b_id`, `similarity_score`, `status` ("pending", "merged", "rejected").
+- `ci_feature_requests`: canonical deduplicated features. Columns: `id`, `summary`, `detail`, `category`, `status` ("new", "in_progress", "shipped"), `owner_id`, `created_at`, `updated_at`.
+- `ci_feature_request_mentions`: every individual mention. Columns: `id`, `feature_request_id` (FK), `source` ("fireflies", "hubspot", "intercom", "nps"), `source_id`, `customer_company`, `customer_email`, `quote`, `urgency`, `created_at`.
+- `ci_feature_dedupe_candidates`: pairs of features the matching algorithm thinks might be duplicates, awaiting human review. Columns: `id`, `feature_a_id`, `feature_b_id`, `similarity_score`, `status` ("pending", "merged", "rejected").
 
 There are 13 more tables for source-specific sync state (where each source left off), HubSpot caching, Slack notifications, and admin auth. You don't need most of those until you're integrating real sources.
 
@@ -260,7 +260,7 @@ This is the big jump. So far the script only runs when someone pastes a transcri
 
 Vercel Cron is dead simple, the schedule lives in one file (`vercel.json`), and the handler is a plain Next.js API route. The downside vs. a real job platform: no retry-with-backoff, no fan-out parallelism, no debug UI. For Call Intelligence's volume (~hundreds of calls/week), none of that matters.
 
-**For visibility**, write every sync run into a `ci_*_sync_runs` table with status, item count, and error message. That table *is* your "Inngest UI", query it to see what happened on each run. Add a `/admin/sync-health` page that reads it and you have a perfectly serviceable dashboard.
+**For visibility**, write every sync run into a `ci_*_sync_runs` table with status, item count, and error message. That table *is* your "Inngest UI". Query it to see what happened on each run. Add a `/admin/sync-health` page that reads it and you have a perfectly serviceable dashboard.
 
 <details markdown="block">
 <summary><strong>The pattern: "sync state" tables</strong></summary>
@@ -402,9 +402,9 @@ Keep a single document (a Notion page, a 1Password vault) listing every key, whe
 
 A scheduled job that silently fails is worse than a job that doesn't exist. You'll need:
 
-- **Logging**, every sync run writes a row to a `*_sync_runs` table with status, item counts, and error messages. Pull these into a "Sync Health" page.
-- **Alerting**, Slack/email notification when a sync fails N times in a row, or when no items have been processed in 24 hours from a source that usually has daily activity.
-- **Dashboards**, Vercel's deployment + cron logs show what ran when; Supabase's logs show DB errors; OpenRouter shows API usage. Bookmark all three. Your own `*_sync_runs` table is also a dashboard if you put a page on top of it.
+- **Logging**: every sync run writes a row to a `*_sync_runs` table with status, item counts, and error messages. Pull these into a "Sync Health" page.
+- **Alerting**: Slack/email notification when a sync fails N times in a row, or when no items have been processed in 24 hours from a source that usually has daily activity.
+- **Dashboards**: Vercel's deployment + cron logs show what ran when; Supabase's logs show DB errors; OpenRouter shows API usage. Bookmark all three. Your own `*_sync_runs` table is also a dashboard if you put a page on top of it.
 
 Ask Claude to add each of these in turn. Don't try to design them all at once.
 
@@ -417,10 +417,10 @@ Calling an LLM for every transcript is slow (1-10 seconds per call). For batch j
 
 Strategies:
 
-- **Streaming**, show the partial response as it generates instead of waiting for full completion.
-- **Caching**, same input + same prompt = same output. Cache aggressively.
-- **Background processing**, never block a user-facing request on an LLM call. Queue the work, show a "processing..." state, update when done.
-- **Smaller models**, Claude Haiku is dramatically faster than Sonnet for simple tasks.
+- **Streaming**: show the partial response as it generates instead of waiting for full completion.
+- **Caching**: same input + same prompt = same output. Cache aggressively.
+- **Background processing**: never block a user-facing request on an LLM call. Queue the work, show a "processing..." state, update when done.
+- **Smaller models**: Claude Haiku is dramatically faster than Sonnet for simple tasks.
 
 </details>
 
@@ -429,9 +429,9 @@ Strategies:
 
 When you have one transcript a week, you don't notice cost. When you have a thousand, you do. Things that have surprised teams:
 
-- **Embedding everything**, vector search is cheap per item but adds up at scale.
-- **Re-extracting on schema changes**, every time you add a new field to the JSON shape, are you re-running every old transcript? That can be a $500 weekend.
-- **Long-context prompts**, pasting in 10 example outputs to "help Claude understand the schema" multiplies your per-call cost by 10. Use system prompts and structured output instead.
+- **Embedding everything**: vector search is cheap per item but adds up at scale.
+- **Re-extracting on schema changes**: every time you add a new field to the JSON shape, are you re-running every old transcript? That can be a $500 weekend.
+- **Long-context prompts**: pasting in 10 example outputs to "help Claude understand the schema" multiplies your per-call cost by 10. Use system prompts and structured output instead.
 
 Set a budget alert in your OpenRouter / Anthropic account. Check costs weekly.
 

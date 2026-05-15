@@ -36,17 +36,17 @@ flowchart LR
 
 Imagine you drop ten call transcripts into a folder. You run one command. Thirty seconds later, you have a spreadsheet with every feature request from all ten calls, labeled and organized. **That's the 201 deliverable.**
 
-It's not glamorous. There's no website yet. But it's the moment when you stop doing the work yourself and your tool starts doing it for you. Everything in 301, the database, the dashboard, the scheduled jobs, is just *making this script run automatically, for more people, more often.*
+It's not glamorous. There's no website yet. But it's the moment when you stop doing the work yourself and your tool starts doing it for you. Everything in 301 (the database, the dashboard, the scheduled jobs) is just *making this script run automatically, for more people, more often.*
 
 ---
 
 ## Setup (20 minutes)
 
-You'll install three things and pick up one new mental model. Take your time. If you've never installed developer tools, this part feels disorienting, that's fine, it's a one-time thing.
+You'll install three things and pick up one new mental model. Take your time. If you've never installed developer tools, this part feels disorienting. That's fine. It's a one-time thing.
 
 ### A note on the terminal before we start
 
-We're going to use **Terminal**, the text-based interface to your computer. It looks like a black or white window where you type commands and get text back. It's intimidating the first time, and easy after about an hour.
+We're going to use **Terminal** (the text-based interface to your computer). It looks like a black or white window where you type commands and get text back. It's intimidating the first time, and easy after about an hour.
 
 If you've never used Terminal:
 
