@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"
+     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f3f4ff"/>
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6F71EE"/>
+      <stop offset="100%" stop-color="#101E57"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-grad)"/>
+
+  <!-- Top accent bar (brand gradient) -->
+  <rect width="1200" height="6" fill="url(#accent-grad)"/>
+
+  <!-- Subtle decorative dots in the upper-right -->
+  <g fill="#6F71EE" opacity="0.12">
+    <circle cx="1090" cy="80" r="4"/>
+    <circle cx="1120" cy="80" r="4"/>
+    <circle cx="1150" cy="80" r="4"/>
+    <circle cx="1090" cy="110" r="4"/>
+    <circle cx="1120" cy="110" r="4"/>
+    <circle cx="1090" cy="140" r="4"/>
+  </g>
+
+  <!-- Site identity (top-left) -->
+  <rect x="80" y="64" width="44" height="44" rx="10" fill="#6F71EE"/>
+  <text x="102" y="94" font-size="24" font-weight="700" fill="white" text-anchor="middle">B</text>
+  <text x="138" y="93" font-size="18" font-weight="600" fill="#101E57">Build With Claude</text>
+
+  <!-- HERO HEADLINE -->
+  <text x="80" y="240" font-size="64" font-weight="700" fill="#101E57">You don't need to know</text>
+  <text x="80" y="316" font-size="64" font-weight="700" fill="#101E57">how to code.</text>
+
+  <!-- Pull quote / value prop -->
+  <text x="80" y="380" font-size="24" font-weight="400" fill="#374151">I built a real AI tool for my team. It reads every customer call,</text>
+  <text x="80" y="412" font-size="24" font-weight="400" fill="#374151">extracts every feature request, and shows our team what to build next.</text>
+
+  <text x="80" y="464" font-size="22" font-weight="500" font-style="italic" fill="#6F71EE">I built it by talking to Claude.</text>
+
+  <!-- Author byline at bottom-left -->
+  <circle cx="105" cy="555" r="28" fill="#6F71EE"/>
+  <text x="105" y="565" font-size="18" font-weight="700" fill="white" text-anchor="middle">LL</text>
+
+  <text x="148" y="551" font-size="18" font-weight="600" fill="#101E57">Laura Litton</text>
+  <text x="148" y="572" font-size="14" fill="#6b7280">VP of Success · LiveSchool</text>
+
+  <!-- URL at bottom-right -->
+  <text x="1120" y="565" font-size="14" font-weight="500" fill="#9ca3af" text-anchor="end">llitton.github.io/build-with-claude</text>
+
+  <!-- Decorative bottom accent line -->
+  <rect x="80" y="600" width="1040" height="2" fill="#e5e7eb"/>
+</svg>
