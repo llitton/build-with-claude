@@ -111,8 +111,6 @@ By the end:
 
 I showed it to Matt, who thought it had potential. (And had a million ideas for how it could be improved!)
 
-Broader team adoption is still rolling out as I write this. It's not the moment-of-launch narrative I expected to be writing. It's slower, more deliberate, more "did anyone find this useful this week?" The honest version: a tool only matters once people actually use it, and that takes longer than building it.
-
 {: .story }
 > **The lesson:** I had a small panic-attack moment after Matt asked if there was "a way to assign each feature to an internal owner so we can track who's responsible for chasing it down." It sounded like a "real software" feature. I assumed it would take me weeks. It took me 45 minutes. Claude Code scaffolded an `owner_id` column, a select dropdown, an API route to update it, and the UI to show owners in the dashboard. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
 
