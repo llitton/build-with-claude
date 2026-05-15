@@ -56,7 +56,7 @@ Every week, our CS team had 30-40 calls. We were already getting auto-generated 
 
 I did that for two weeks. Maybe 60 calls total, by hand, in a Notion page.
 
-**Two weeks in, I had something Canny couldn't give us.** A list of customer asks pulled straight from call transcripts, including the ones that had been mentioned on calls but never gotten logged into Canny, plus verbatim customer quotes for the ones we already knew about. I shared it in a 1:1 with Matt. A meaningful chunk was brand new to him. The rest had useful context attached that we'd never captured. **That's when I knew it was worth building.**
+**Two weeks in, I had something Canny couldn't give us.** A list of customer asks pulled straight from call transcripts, including the ones that had been mentioned on calls but never gotten logged into Canny, plus verbatim customer quotes for the ones we already knew about. I mentioned it in a 1:1 with Matt. He suggested I keep going. **What could we learn from 200 calls? From 1,000?**
 
 {: .story }
 > **The lesson:** I almost skipped this phase. I almost jumped straight into "build a real tool." If I had, I would have built the wrong tool. I would have optimized for things that turned out not to matter (which sources to ingest, what fields to extract) and missed the things that *did* matter (deduplication, source linking, presenting evidence cleanly). Two weeks of doing it by hand is what told me what to build.
