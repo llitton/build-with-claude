@@ -8,8 +8,19 @@ permalink: /docs/case-study/
 # Case Study: How Call Intelligence got built
 {: .no_toc }
 
-A linear story of how a non-engineer (me, Laura) turned a frustrating manual workflow into a tool the product team uses every week. Real timeline, real mistakes, real prompts.
+A linear story of how a non-engineer (me, Laura) turned a frustrating manual workflow into a working internal tool — built on evenings and weekends, with Claude Code writing essentially all the code. Real timeline, real mistakes, real prompts.
 {: .fs-5 .fw-300 }
+
+<div class="context-box" markdown="1">
+
+**TL;DR**
+
+- **What I built:** Call Intelligence, a tool that reads every customer call/email/chat/survey and extracts feature requests automatically — pulling out the asks that never made it into our [Canny](https://canny.io) feature board
+- **How:** Next.js + Supabase + Vercel Cron + OpenRouter, all written by [Claude Code](https://claude.ai/code) over a few months of evenings
+- **Why:** It's the next chapter of the CS↔Product feedback loop I [first wrote about in 2023](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams) — same problem (feedback gets lost between customers and the roadmap), automated solution
+- **Status:** Working internal tool, used weekly by me and referenced by leadership; broader team rollout still in progress
+
+</div>
 
 <details markdown="block">
 <summary><strong>Table of contents</strong></summary>
@@ -230,7 +241,21 @@ Three things:
 
 3. **Internal tools are the right starting place.** Don't try to build the next Notion. Build the thing your own team needs that's currently a manual Google Sheet. Internal tools have a forgiving user base (your coworkers), a defined problem (the manual thing they hate), and a fast feedback loop (you sit next to them). **They're the perfect on-ramp.**
 
-If you've read this far, go back to the [101](../101-your-first-ai-tool/) and start. The hard part isn't the code.
+---
+
+## If this resonated
+
+You have three honest options from here:
+
+[Start the 101 (30 minutes)](../101-your-first-ai-tool/){: .btn .btn-primary .fs-5 .mr-2 }
+[Want to chat? Book time](https://liveschoolapp.com/bc/book/chat-with-laura-liveschool){: .btn .fs-5 .mr-2 }
+[See the resources](../resources/){: .btn .fs-5 }
+
+- **If you're curious whether you could do this:** start the [101](../101-your-first-ai-tool/). Thirty minutes will tell you whether it's for you.
+- **If you're a CS leader thinking through your own version:** [grab time on my calendar](https://liveschoolapp.com/bc/book/chat-with-laura-liveschool) — I'm happy to talk through what worked, what didn't, and where to start. Or message me on [LinkedIn](https://www.linkedin.com/in/lauralitton/).
+- **If you want to see the broader tooling:** the [Resources page](../resources/) has every link, glossary entry, and prompting pattern I've collected.
+
+The hard part isn't the code.
 
 ---
 

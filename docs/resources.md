@@ -86,6 +86,7 @@ Tools, links, communities, prompting patterns, and a glossary of every term that
 
 For the absolute beginner who finished the 101 and wants to think about what they're doing:
 
+- 🎥 **[Every Level of Claude Code Explained in 39 Minutes](https://www.youtube.com/watch?v=Y09u_S3w2c8)** — The single most useful Claude Code video I've found. Walks through Claude Code at increasing levels of depth, from "I just installed it" to "I'm running it as an agent on my codebase." [I particularly liked the section starting around 35:07](https://www.youtube.com/watch?v=Y09u_S3w2c8&t=2107s) — skip there if you want the part that resonated with me most.
 - **[Anthropic's "Prompt Engineering" guide](https://docs.anthropic.com/claude/docs/intro-to-prompting)** — Official, short, useful.
 - **[How I use AI to write code](https://crawshaw.io/blog/programming-with-llms)** by David Crawshaw — A working engineer describes the actual workflow.
 - **[Simon Willison's blog](https://simonwillison.net/)** — Best running commentary on LLM tooling. Skim the tag for "llm-tools".
