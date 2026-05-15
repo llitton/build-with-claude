@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720"
+     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <clipPath id="dash-clip">
+      <rect width="1280" height="720" rx="10"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#dash-clip)">
+    <!-- Page background -->
+    <rect width="1280" height="720" fill="#fafbfc"/>
+
+    <!-- LEFT SIDEBAR (light gray rail) -->
+    <rect width="60" height="720" fill="#f3f4f7"/>
+    <rect x="59" width="1" height="720" fill="#e5e7eb"/>
+
+    <!-- Sidebar: LS logo (brand purple square) -->
+    <rect x="14" y="14" width="32" height="32" rx="8" fill="#6F71EE"/>
+    <text x="30" y="34" font-size="13" font-weight="700" fill="white" text-anchor="middle" font-family="-apple-system, sans-serif">LS</text>
+
+    <!-- Sidebar: icon stack (generic gray squares to suggest nav) -->
+    <g fill="#9ca3af">
+      <circle cx="30" cy="80" r="4"/>
+      <rect x="22" y="100" width="16" height="2" rx="1"/>
+      <rect x="22" y="106" width="16" height="2" rx="1"/>
+      <rect x="22" y="112" width="16" height="2" rx="1"/>
+    </g>
+    <g fill="#9ca3af" opacity="0.6">
+      <circle cx="30" cy="150" r="6" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+      <rect x="22" y="178" width="16" height="12" rx="2" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+      <rect x="22" y="208" width="16" height="12" rx="2" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+      <rect x="22" y="238" width="16" height="12" rx="2" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+      <rect x="22" y="268" width="16" height="12" rx="2" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+      <circle cx="30" cy="304" r="6" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+      <circle cx="30" cy="332" r="6" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+      <circle cx="30" cy="360" r="6" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+    </g>
+
+    <!-- Selected nav item indicator (purple dot) -->
+    <rect x="0" y="234" width="3" height="22" fill="#6F71EE"/>
+
+    <!-- MAIN CONTENT -->
+    <!-- Header section -->
+    <text x="92" y="48" font-size="24" font-weight="700" fill="#101E57">Feature Requests</text>
+    <text x="92" y="72" font-size="13" fill="#6b7280">Decide what to build next, based on real customer asks.</text>
+
+    <!-- Filter row -->
+    <!-- Search box -->
+    <rect x="92" y="98" width="380" height="34" rx="6" fill="white" stroke="#e5e7eb"/>
+    <circle cx="108" cy="115" r="5" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+    <line x1="112" y1="119" x2="116" y2="123" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="124" y="119" font-size="13" fill="#9ca3af">Search…</text>
+
+    <!-- Sort dropdown -->
+    <text x="900" y="119" font-size="13" fill="#6b7280">Sort:</text>
+    <rect x="935" y="100" width="160" height="30" rx="6" fill="white" stroke="#e5e7eb"/>
+    <text x="947" y="119" font-size="13" fill="#111827" font-weight="500">Most mentions</text>
+    <polyline points="1078,113 1082,118 1086,113" fill="none" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Filters chip -->
+    <text x="1110" y="119" font-size="13" fill="#6b7280">⚙ Filters</text>
+
+    <!-- Divider -->
+    <line x1="92" y1="150" x2="1230" y2="150" stroke="#e5e7eb"/>
+
+    <!-- FEATURE ROWS -->
+    <!-- Each row: title, description, metrics -->
+
+    <!-- Row 1 -->
+    <text x="92" y="178" font-size="14" font-weight="600" fill="#111827">Show full year of points in the parent app</text>
+    <text x="92" y="197" font-size="12" fill="#6b7280">Parents currently only see the current week; they want to see the full school year of points history for their child.</text>
+    <text x="92" y="217" font-size="11" fill="#9ca3af">💬 47 mentions  ·  🏫 12 schools  ·  Last seen 2 days ago</text>
+    <line x1="92" y1="232" x2="1230" y2="232" stroke="#f3f4f6"/>
+
+    <!-- Row 2 -->
+    <text x="92" y="258" font-size="14" font-weight="600" fill="#111827">Custom date ranges in reports</text>
+    <text x="92" y="277" font-size="12" fill="#6b7280">Admins want to pull reports by arbitrary date range (e.g., a specific quarter), not just the current month.</text>
+    <text x="92" y="297" font-size="11" fill="#9ca3af">💬 41 mentions  ·  🏫 18 schools  ·  Last seen 5 days ago</text>
+    <line x1="92" y1="312" x2="1230" y2="312" stroke="#f3f4f6"/>
+
+    <!-- Row 3 -->
+    <text x="92" y="338" font-size="14" font-weight="600" fill="#111827">Attach a photo to a behavior award</text>
+    <text x="92" y="357" font-size="12" fill="#6b7280">Teachers want to capture the moment when a student does something special, instead of texting the photo separately.</text>
+    <text x="92" y="377" font-size="11" fill="#9ca3af">💬 32 mentions  ·  🏫 9 schools  ·  Last seen 1 week ago</text>
+    <line x1="92" y1="392" x2="1230" y2="392" stroke="#f3f4f6"/>
+
+    <!-- Row 4 -->
+    <text x="92" y="418" font-size="14" font-weight="600" fill="#111827">Bulk import students from CSV</text>
+    <text x="92" y="437" font-size="12" fill="#6b7280">Schools onboarding hundreds of students need a CSV import flow instead of adding them one at a time.</text>
+    <text x="92" y="457" font-size="11" fill="#9ca3af">💬 28 mentions  ·  🏫 14 schools  ·  Last seen 3 days ago</text>
+    <line x1="92" y1="472" x2="1230" y2="472" stroke="#f3f4f6"/>
+
+    <!-- Row 5 -->
+    <text x="92" y="498" font-size="14" font-weight="600" fill="#111827">Mobile-friendly admin dashboard</text>
+    <text x="92" y="517" font-size="12" fill="#6b7280">Administrators want to manage the platform from their phone during hallway duty, recess, dismissal.</text>
+    <text x="92" y="537" font-size="11" fill="#9ca3af">💬 24 mentions  ·  🏫 11 schools  ·  Last seen 1 week ago</text>
+    <line x1="92" y1="552" x2="1230" y2="552" stroke="#f3f4f6"/>
+
+    <!-- Row 6 -->
+    <text x="92" y="578" font-size="14" font-weight="600" fill="#111827">Configurable point values by grade level</text>
+    <text x="92" y="597" font-size="12" fill="#6b7280">Lower grades and upper grades need different point structures; current system applies one scale across the whole school.</text>
+    <text x="92" y="617" font-size="11" fill="#9ca3af">💬 19 mentions  ·  🏫 8 schools  ·  Last seen 2 weeks ago</text>
+    <line x1="92" y1="632" x2="1230" y2="632" stroke="#f3f4f6"/>
+
+    <!-- Row 7 (partially visible — suggests more below) -->
+    <text x="92" y="658" font-size="14" font-weight="600" fill="#111827">Export gradebook to PDF</text>
+    <text x="92" y="677" font-size="12" fill="#6b7280">Teachers need a printable PDF version for parent conferences and physical recordkeeping.</text>
+    <text x="92" y="697" font-size="11" fill="#9ca3af">💬 16 mentions  ·  🏫 7 schools  ·  Last seen 4 days ago</text>
+
+    <!-- Fade-out gradient at bottom to suggest more rows below the fold -->
+    <defs>
+      <linearGradient id="fade-bottom" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#fafbfc" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#fafbfc" stop-opacity="1"/>
+      </linearGradient>
+    </defs>
+    <rect x="60" y="700" width="1220" height="20" fill="url(#fade-bottom)"/>
+  </g>
+</svg>

@@ -45,9 +45,9 @@ I'm the VP of Success at an EdTech company. A year ago, I'd never written a real
 </div>
 
 <figure class="hero-image">
-  <img src="assets/images/dashboard-hero.png" alt="The Call Intelligence dashboard: feature requests sorted by mention count">
+  <img src="assets/images/dashboard-hero.svg" alt="The Call Intelligence dashboard: feature requests sorted by mention count">
 </figure>
-<p class="hero-image-caption">The live Call Intelligence dashboard. Every row is a deduplicated feature request, sorted by how many customers have asked for it.</p>
+<p class="hero-image-caption">An illustrative view of the Call Intelligence dashboard (real feature titles and ARR redacted). Every row is a deduplicated feature request, sorted by how many customers have asked for it.</p>
 
 ---
 
