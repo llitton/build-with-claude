@@ -38,7 +38,7 @@ I work at [LiveSchool](https://whyliveschool.com/), an EdTech company. We make a
 
 **And we kept losing it.**
 
-A principal would mention on a renewal call that she desperately needed a custom date range in reports. The CS manager would say *"oh yeah, we've heard that a lot."* If she remembered, she'd go log it in [Canny.io](https://canny.io) later that day. Canny was the system we'd built for tracking feature requests, and [I wrote about how we set it up in 2023](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams). If she didn't remember, the ask was gone.
+A principal would mention on a renewal call that she desperately needed a custom date range in reports. The CSM would say *"oh yeah, we've heard that a lot."* If she remembered, she'd go log it in [Canny.io](https://canny.io) later that day. Canny was the system we'd built for tracking feature requests, and [I wrote about how we set it up in 2023](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams). If she didn't remember, the ask was gone.
 
 Across our team, *most* asks didn't make it into Canny. Calls were busy, the moments came fast, and logging feedback into a separate tool was always somebody's second priority. Product was prioritizing based on the loudest internal voice rather than the data, because the data we *had* was incomplete by design.
 
