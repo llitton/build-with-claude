@@ -18,7 +18,7 @@ A linear story of how a non-engineer (me, Laura) turned a frustrating manual wor
 - **What I built:** Call Intelligence, a tool that reads every customer call/email/chat/survey and extracts feature requests automatically, pulling out the asks that never made it into our [Canny](https://canny.io) feature board
 - **How:** Next.js + Supabase + Vercel Cron + OpenRouter, all written by [Claude Code](https://claude.ai/code) over a few months of evenings
 - **Why:** It's the next chapter of the CS↔Product feedback loop I [first wrote about in 2023](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams). Same problem (feedback gets lost between customers and the roadmap), now with an automated solution
-- **Status:** Working internal tool, used weekly by me and referenced by leadership; broader team rollout still in progress
+- **Status:** Working internal tool, used weekly by me and referenced by Matt; broader team rollout still in progress
 
 </div>
 
@@ -114,7 +114,7 @@ I showed it to Matt, who thought it had potential. (And had a million ideas for 
 Broader team adoption is still rolling out as I write this. It's not the moment-of-launch narrative I expected to be writing. It's slower, more deliberate, more "did anyone find this useful this week?" The honest version: a tool only matters once people actually use it, and that takes longer than building it.
 
 {: .story }
-> **The lesson:** I had a small panic-attack moment after leadership asked if there was "a way to assign each feature to an internal owner so we can track who's responsible for chasing it down." It sounded like a "real software" feature. I assumed it would take me weeks. It took me 45 minutes. Claude Code scaffolded an `owner_id` column, a select dropdown, an API route to update it, and the UI to show owners in the dashboard. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
+> **The lesson:** I had a small panic-attack moment after Matt asked if there was "a way to assign each feature to an internal owner so we can track who's responsible for chasing it down." It sounded like a "real software" feature. I assumed it would take me weeks. It took me 45 minutes. Claude Code scaffolded an `owner_id` column, a select dropdown, an API route to update it, and the UI to show owners in the dashboard. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
 
 ---
 
@@ -175,7 +175,7 @@ The triage UI was the unexpectedly satisfying part. I'd sit down with a coffee, 
 
 ## Phase 6: Polish, integrations, Slack
 
-The system was working for *me*. Now I started building the things that would make it work for other people, even before those people were actively using it. Some of it was speculative ("when a wider rollout happens, we'll want this"), some of it was responding to actual asks from leadership.
+The system was working for *me*. Now I started building the things that would make it work for other people, even before those people were actively using it. Some of it was speculative ("when a wider rollout happens, we'll want this"), some of it was responding to actual asks from Matt.
 
 - **Slack notifications** calling out what the customer asked for and the context behind the ask
 - **Email integration** so the team could send "we shipped what you asked for" announcements directly from the feature detail page
@@ -197,7 +197,7 @@ This phase taught me the most about code organization. Earlier I had everything 
 - **16 Postgres tables** (`ci_*` prefix, plus shared CRM tables)
 - **4 active data sources** flowing in automatically (Fireflies via webhook + cron fallback; HubSpot email, Intercom, NPS via Vercel Cron)
 - **~50,000 mentions** processed, deduplicated into ~3,500 canonical features
-- **Used weekly by me; referenced by leadership; rolling out to the wider team gradually**
+- **Used weekly by me; referenced by Matt; rolling out to the wider team gradually**
 - **~$40/month** in LLM costs (OpenRouter, mostly Haiku for extraction, Sonnet for dedup judgment)
 - **~$25/month** in hosting (Vercel + Supabase, both on paid tiers; cron scheduling is included)
 
