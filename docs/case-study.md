@@ -200,7 +200,7 @@ This phase taught me the most about code organization. Earlier I had everything 
 - **~$40/month** in LLM costs (OpenRouter, mostly Haiku for extraction, Sonnet for dedup judgment)
 - **~$25/month** in hosting (Vercel + Supabase, both on paid tiers; cron scheduling is included)
 
-It's not a moonshot. It's not even fully launched. It's a working internal tool that's already changing how I think about product feedback, and that I'm steadily wiring into how the rest of the team thinks about it too. **That's the bar I wish people aimed at more.** Most internal tools don't need to be perfect on day one; they need to be useful to *one person* on day one, and improve from there.
+It's a working internal tool that's already changing how I think about product feedback, and that I'm steadily wiring into how the rest of the team thinks about it too. **That's the bar I wish people aimed at more.** Most internal tools don't need to be perfect on day one; they need to be useful to *one person* on day one, and improve from there.
 
 ---
 
