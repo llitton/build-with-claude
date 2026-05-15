@@ -129,13 +129,14 @@ Each one needed its own ingestion. Each had its own API, its own auth, its own p
 
 This was the slog phase. The phase where you realize software has a long tail of integration boilerplate. **Pulling data out of other systems is most of the work in building a system.**
 
-I did this incrementally, one source per weekend:
+I did this incrementally, one source at a time:
 
 - **Weekend 1**: HubSpot email sync. The HubSpot API for searching email threads is confusing. Took me longer than expected. Claude walked me through it but I had to actually understand the data model to get it right.
 - **Weekend 2**: Intercom sync. Easier; their API is cleaner.
 - **Weekend 3**: NPS survey ingestion. Different shape (single short text response, not a transcript), so the extraction prompt had to change. I added a `source_type` field that flows through to the prompt selection.
+- **A weekend a few months later**: Canny sync. The natural last source to add, given Canny was already the central feature-request hub. Now Canny entries flow into the same dedup pipeline as everything else, so a feature first surfaced on a call shows up linked to its later Canny entry (and vice versa).
 
-By the end of the month, five sources flowed in automatically: Fireflies via webhook (real-time, with a Vercel Cron fallback every 6 hours), plus HubSpot, Intercom, NPS, and Canny via Vercel Cron on their own schedules. **The dashboard now had thousands of mentions in it.**
+By the end, five sources flowed in automatically: Fireflies via webhook (real-time, with a Vercel Cron fallback every 6 hours), plus HubSpot, Intercom, NPS, and Canny via Vercel Cron on their own schedules. **The dashboard now had thousands of mentions in it.**
 
 That was the moment deduplication stopped being optional.
 
