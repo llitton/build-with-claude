@@ -36,7 +36,7 @@ Tools, links, communities, prompting patterns, and a glossary of every term that
 |---|---|---|---|
 | [Claude Code](https://claude.ai/code) | Terminal-based AI agent | **What this guide teaches.** Anthropic's official agent. You give it a goal, it figures out the steps. Used to build Call Intelligence. | Subscription via Claude.ai (Pro $20/mo) or pay-per-use via API |
 | [Cursor](https://cursor.com) | AI code editor (GUI) | Alternative if you prefer a visual editor over the terminal. Familiar feel if you've ever seen VS Code. | Free tier; Pro $20/mo |
-| [VS Code](https://code.visualstudio.com) | General-purpose code editor | Useful as a "visual companion" alongside Claude Code — see your file tree and read code with syntax highlighting. | Free |
+| [VS Code](https://code.visualstudio.com) | General-purpose code editor | Useful as a "visual companion" alongside Claude Code, see your file tree and read code with syntax highlighting. | Free |
 | [Anthropic Console](https://console.anthropic.com) | Get an API key, monitor usage | Required for any code that *calls* Claude programmatically (your scripts, not your dev tool) | Pay-per-token; pennies for small projects |
 | [OpenRouter](https://openrouter.ai) | One API for many LLMs | Useful when you want to swap models without changing code | Pay-per-token; transparent pricing dashboard |
 
@@ -86,31 +86,31 @@ Tools, links, communities, prompting patterns, and a glossary of every term that
 
 For the absolute beginner who finished the 101 and wants to think about what they're doing:
 
-- 🎥 **[Every Level of Claude Code Explained in 39 Minutes](https://www.youtube.com/watch?v=Y09u_S3w2c8)** — The single most useful Claude Code video I've found. Walks through Claude Code at increasing levels of depth, from "I just installed it" to "I'm running it as an agent on my codebase." Worth watching all the way through.
-- **[Anthropic's "Prompt Engineering" guide](https://docs.anthropic.com/claude/docs/intro-to-prompting)** — Official, short, useful.
-- **[How I use AI to write code](https://crawshaw.io/blog/programming-with-llms)** by David Crawshaw — A working engineer describes the actual workflow.
-- **[Simon Willison's blog](https://simonwillison.net/)** — Best running commentary on LLM tooling. Skim the tag for "llm-tools".
-- **[Geoffrey Litt — Malleable software](https://www.geoffreylitt.com/)** — Why this is a bigger shift than tutorials let on.
+- 🎥 **[Every Level of Claude Code Explained in 39 Minutes](https://www.youtube.com/watch?v=Y09u_S3w2c8)**, The single most useful Claude Code video I've found. Walks through Claude Code at increasing levels of depth, from "I just installed it" to "I'm running it as an agent on my codebase." Worth watching all the way through.
+- **[Anthropic's "Prompt Engineering" guide](https://docs.anthropic.com/claude/docs/intro-to-prompting)**, Official, short, useful.
+- **[How I use AI to write code](https://crawshaw.io/blog/programming-with-llms)** by David Crawshaw, A working engineer describes the actual workflow.
+- **[Simon Willison's blog](https://simonwillison.net/)**, Best running commentary on LLM tooling. Skim the tag for "llm-tools".
+- **[Geoffrey Litt, Malleable software](https://www.geoffreylitt.com/)**, Why this is a bigger shift than tutorials let on.
 
 For the 201/301 reader who's actually building things:
 
-- **[Next.js Learn](https://nextjs.org/learn)** — Official Next.js tutorial. Do this if you want one structured walkthrough.
-- **[Supabase docs](https://supabase.com/docs)** — Genuinely good. The "build a database" guide is enough to start.
-- **[Just enough TypeScript](https://www.totaltypescript.com/)** by Matt Pocock — Free intros that actually click.
-- **[The Pragmatic Engineer](https://www.pragmaticengineer.com/)** — Newsletter on how real software teams work. Read it to understand the industry around you.
+- **[Next.js Learn](https://nextjs.org/learn)**, Official Next.js tutorial. Do this if you want one structured walkthrough.
+- **[Supabase docs](https://supabase.com/docs)**, Genuinely good. The "build a database" guide is enough to start.
+- **[Just enough TypeScript](https://www.totaltypescript.com/)** by Matt Pocock, Free intros that actually click.
+- **[The Pragmatic Engineer](https://www.pragmaticengineer.com/)**, Newsletter on how real software teams work. Read it to understand the industry around you.
 
 For the CS leader thinking about *why* this tool exists in the first place:
 
-- **[How to Create an Effective Feedback Loop Between Customer Success and Product Teams](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams)** — I wrote this for [Gain Grow Retain](https://gaingrowretain.com) in 2023, back when I was Director of Success at LiveSchool. It walks through the manual playbook we built using [Canny.io](https://canny.io) — centralizing requests, setting a monthly cadence with Product, training the whole company to log things in one place. **Read this first for the human-driven version of the feedback loop, then come back here for the automated next step.**
+- **[How to Create an Effective Feedback Loop Between Customer Success and Product Teams](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams)**, I wrote this for [Gain Grow Retain](https://gaingrowretain.com) in 2023, back when I was Director of Success at LiveSchool. It walks through the manual playbook we built using [Canny.io](https://canny.io), centralizing requests, setting a monthly cadence with Product, training the whole company to log things in one place. **Read this first for the human-driven version of the feedback loop, then come back here for the automated next step.**
 
 ---
 
 ## Communities
 
-- **[Claude Discord](https://discord.com/invite/anthropic)** — Active, friendly, lots of people building.
-- **[r/ClaudeAI](https://reddit.com/r/ClaudeAI)** — Casual discussion, tips, gotchas.
-- **[Cursor Discord](https://discord.com/invite/cursor)** — Cursor-specific questions, often answered by Cursor staff.
-- **[Indie Hackers](https://www.indiehackers.com)** — For when you start thinking *"what if I shipped this as a product"*.
+- **[Claude Discord](https://discord.com/invite/anthropic)**, Active, friendly, lots of people building.
+- **[r/ClaudeAI](https://reddit.com/r/ClaudeAI)**, Casual discussion, tips, gotchas.
+- **[Cursor Discord](https://discord.com/invite/cursor)**, Cursor-specific questions, often answered by Cursor staff.
+- **[Indie Hackers](https://www.indiehackers.com)**, For when you start thinking *"what if I shipped this as a product"*.
 
 ---
 
@@ -154,7 +154,7 @@ This is the design-by-example pattern from the [101](../101-your-first-ai-tool/#
 
 When you want to think ahead:
 
-> Right now this is a personal tool. What would change if this had to handle 100,000 users? Don't change the code yet — just tell me what the major issues would be and how I'd address each.
+> Right now this is a personal tool. What would change if this had to handle 100,000 users? Don't change the code yet, just tell me what the major issues would be and how I'd address each.
 
 You learn architecture patterns by hearing what *would* break. Way more efficient than building it and watching it fail.
 
@@ -172,59 +172,59 @@ Almost always, the dumbest version is enough. The complicated version is for lat
 
 Terms I tripped on. Defined casually.
 
-**API** — A way for code to talk to other code. When Claude has an "API," it means there's a URL you can send text to and get a response back. Same idea for HubSpot, Fireflies, Slack, etc.
+**API**, A way for code to talk to other code. When Claude has an "API," it means there's a URL you can send text to and get a response back. Same idea for HubSpot, Fireflies, Slack, etc.
 
-**Auth / OAuth** — Authentication: proving who you are. OAuth specifically: a standard way to let "App A" act on your behalf in "App B" without giving away your password. Google sign-in is OAuth.
+**Auth / OAuth**, Authentication: proving who you are. OAuth specifically: a standard way to let "App A" act on your behalf in "App B" without giving away your password. Google sign-in is OAuth.
 
-**Backend / Frontend** — Frontend is what runs in the user's browser (the page, the buttons). Backend is what runs on a server (database queries, sensitive logic, API calls to other services). In Next.js they're in the same project, but conceptually split.
+**Backend / Frontend**, Frontend is what runs in the user's browser (the page, the buttons). Backend is what runs on a server (database queries, sensitive logic, API calls to other services). In Next.js they're in the same project, but conceptually split.
 
-**Cron / Scheduled job** — Code that runs on a schedule, not in response to a user action. "Every 6 hours, fetch new transcripts" is a cron job.
+**Cron / Scheduled job**, Code that runs on a schedule, not in response to a user action. "Every 6 hours, fetch new transcripts" is a cron job.
 
-**Database migration** — A script that changes the structure of your database (add a column, create a table, etc.). Migrations get committed to your repo so the changes are tracked.
+**Database migration**, A script that changes the structure of your database (add a column, create a table, etc.). Migrations get committed to your repo so the changes are tracked.
 
-**Embedding / Vector** — A numeric representation of a piece of text that captures its meaning. Two texts with similar meaning have similar vectors. Used for "find similar items" features (like dedup).
+**Embedding / Vector**, A numeric representation of a piece of text that captures its meaning. Two texts with similar meaning have similar vectors. Used for "find similar items" features (like dedup).
 
-**Environment variable** — A piece of config (like an API key) stored *outside* your code. Lives in a `.env` file locally and in your hosting platform's settings in production. Keeps secrets out of git.
+**Environment variable**, A piece of config (like an API key) stored *outside* your code. Lives in a `.env` file locally and in your hosting platform's settings in production. Keeps secrets out of git.
 
-**Inngest / Job queue** — A service that lets you write functions and have them run on a schedule, in response to events, or in the background. Handles retries and parallelism. Heavier than Vercel Cron; worth it for complex orchestration.
+**Inngest / Job queue**, A service that lets you write functions and have them run on a schedule, in response to events, or in the background. Handles retries and parallelism. Heavier than Vercel Cron; worth it for complex orchestration.
 
-**JSON** — A simple text format for structured data. What Claude outputs when you say "return as JSON." Looks like `{"key": "value", "list": [1, 2, 3]}`.
+**JSON**, A simple text format for structured data. What Claude outputs when you say "return as JSON." Looks like `{"key": "value", "list": [1, 2, 3]}`.
 
-**Migration** — See "Database migration."
+**Migration**, See "Database migration."
 
-**Node.js** — The runtime that lets you run JavaScript on your computer (instead of just in a browser).
+**Node.js**, The runtime that lets you run JavaScript on your computer (instead of just in a browser).
 
-**npm / pnpm / yarn** — Package managers. They install the libraries your code depends on. `npm install` reads `package.json` and downloads everything.
+**npm / pnpm / yarn**, Package managers. They install the libraries your code depends on. `npm install` reads `package.json` and downloads everything.
 
-**Next.js** — The most popular React framework. Lets you write both the UI and the API in the same project.
+**Next.js**, The most popular React framework. Lets you write both the UI and the API in the same project.
 
-**Postgres** — A relational database. Storage for structured data. Supabase is built on Postgres.
+**Postgres**, A relational database. Storage for structured data. Supabase is built on Postgres.
 
-**Prompt** — The text you send to Claude. The art of writing prompts well is "prompt engineering."
+**Prompt**, The text you send to Claude. The art of writing prompts well is "prompt engineering."
 
-**React** — The most popular JavaScript library for building UIs. Components, state, props. Next.js is built on React.
+**React**, The most popular JavaScript library for building UIs. Components, state, props. Next.js is built on React.
 
-**Repo / Repository** — A folder of code tracked by git. Usually pushed to GitHub.
+**Repo / Repository**, A folder of code tracked by git. Usually pushed to GitHub.
 
-**REST API** — The most common style of API. URLs like `GET /features/123` or `POST /features`. Most third-party services (HubSpot, Fireflies, etc.) provide REST APIs.
+**REST API**, The most common style of API. URLs like `GET /features/123` or `POST /features`. Most third-party services (HubSpot, Fireflies, etc.) provide REST APIs.
 
-**Row-Level Security (RLS)** — A Postgres feature that enforces per-row access rules inside the database. "Users can only read rows they own." Critical for multi-user apps.
+**Row-Level Security (RLS)**, A Postgres feature that enforces per-row access rules inside the database. "Users can only read rows they own." Critical for multi-user apps.
 
-**Schema** — The shape of your data. What tables exist, what columns each has, what types they hold.
+**Schema**, The shape of your data. What tables exist, what columns each has, what types they hold.
 
-**SDK** — A library that wraps an API in a convenient interface. `@anthropic-ai/sdk` is the official SDK for Claude — easier than calling the raw API yourself.
+**SDK**, A library that wraps an API in a convenient interface. `@anthropic-ai/sdk` is the official SDK for Claude, easier than calling the raw API yourself.
 
-**Supabase** — Hosted Postgres + auth + storage. The default "backend in a box" for personal-scale projects.
+**Supabase**, Hosted Postgres + auth + storage. The default "backend in a box" for personal-scale projects.
 
-**Token** — Roughly, a chunk of text (about ¾ of a word). LLMs charge by token, both for input and output.
+**Token**, Roughly, a chunk of text (about ¾ of a word). LLMs charge by token, both for input and output.
 
-**TypeScript** — JavaScript with types. Lets the editor catch errors before you run the code. Slightly more setup, much fewer bugs.
+**TypeScript**, JavaScript with types. Lets the editor catch errors before you run the code. Slightly more setup, much fewer bugs.
 
-**Vercel** — A hosting platform that auto-deploys Next.js apps from GitHub. Push to main → live in 60 seconds.
+**Vercel**, A hosting platform that auto-deploys Next.js apps from GitHub. Push to main → live in 60 seconds.
 
-**Vercel Cron** — A scheduling feature built into Vercel hosting. You add a `crons` array to `vercel.json` listing `path` + `schedule` pairs, and Vercel pings those URLs on the schedule. The handler is just a regular API route. Simplest cron path on Vercel.
+**Vercel Cron**, A scheduling feature built into Vercel hosting. You add a `crons` array to `vercel.json` listing `path` + `schedule` pairs, and Vercel pings those URLs on the schedule. The handler is just a regular API route. Simplest cron path on Vercel.
 
-**Webhook** — An API in reverse: when something happens in another system (a new Fireflies call, a HubSpot deal update), they call *your* URL to notify you. The opposite of polling.
+**Webhook**, An API in reverse: when something happens in another system (a new Fireflies call, a HubSpot deal update), they call *your* URL to notify you. The opposite of polling.
 
 ---
 

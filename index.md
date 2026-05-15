@@ -9,7 +9,7 @@ permalink: /
 # You don't need to know how to code.
 {: .fs-9 }
 
-I'm the VP of Success at an EdTech company. A year ago, I'd never written a real program. Today, the tool I'm about to show you — **Call Intelligence** — reads every customer call, extracts every feature request, and gives our product team a live roadmap of what customers actually want.
+I'm the VP of Success at an EdTech company. A year ago, I'd never written a real program. Today, the tool I'm about to show you, **Call Intelligence**, reads every customer call, extracts every feature request, and gives our product team a live roadmap of what customers actually want.
 {: .fs-5 .fw-300 }
 
 <p class="pull-quote">I built it by talking to Claude.</p>
@@ -45,7 +45,7 @@ I'm the VP of Success at an EdTech company. A year ago, I'd never written a real
 </div>
 
 <figure class="hero-image">
-  <img src="assets/images/dashboard-hero.png" alt="The Call Intelligence dashboard — feature requests sorted by mention count">
+  <img src="assets/images/dashboard-hero.png" alt="The Call Intelligence dashboard: feature requests sorted by mention count">
 </figure>
 <p class="hero-image-caption">The live Call Intelligence dashboard. Every row is a deduplicated feature request, sorted by how many customers have asked for it.</p>
 
@@ -87,9 +87,9 @@ Inside each layer, anything you don't want to read is hidden behind a toggle. Th
 
 In May 2023, I wrote [a blog post for Gain Grow Retain](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams) about how to build a working feedback loop between Customer Success and Product teams.
 
-The short version: when I started as Director of Success at LiveSchool, our system for tracking customer feature requests was a mess of Airtable rows, Intercom tags, and gut-feel anecdotes. The Product team couldn't tell which features were actually being asked for most often. The Success team couldn't tell what was in the pipeline. **No one had a real signal — just noise.**
+The short version: when I started as Director of Success at LiveSchool, our system for tracking customer feature requests was a mess of Airtable rows, Intercom tags, and gut-feel anecdotes. The Product team couldn't tell which features were actually being asked for most often. The Success team couldn't tell what was in the pipeline. **No one had a real signal, just noise.**
 
-So I got us onto [Canny.io](https://canny.io), set up a monthly cadence with Product, and pulled everyone — Success, Sales, Marketing — into the habit of logging requests in one place. The article walks through the five things that mattered: centralize requests, establish clear meeting cadences, choose the right tool, train people on it, and add prioritization beyond raw vote counts.
+So I got us onto [Canny.io](https://canny.io), set up a monthly cadence with Product, and pulled everyone (Success, Sales, Marketing) into the habit of logging requests in one place. The article walks through the five things that mattered: centralize requests, establish clear meeting cadences, choose the right tool, train people on it, and add prioritization beyond raw vote counts.
 
 Canny worked. It still works.
 
@@ -97,15 +97,15 @@ Canny worked. It still works.
 
 **The bottleneck Canny didn't solve**
 
-A central repository only helps if the requests actually make it in. Sales hears something on a demo. Support gets it in a chat. The CS team learns about it on a renewal call. Unless someone remembers to log it — *and finds the right ticket, and writes a clean summary, and tags it correctly* — it's gone.
+A central repository only helps if the requests actually make it in. Sales hears something on a demo. Support gets it in a chat. The CS team learns about it on a renewal call. Unless someone remembers to log it, *and finds the right ticket, and writes a clean summary, and tags it correctly*, it's gone.
 
 Years into running that system, I watched it get partly skipped every single week. Not because anyone was lazy. Because logging feedback into a separate tool, in the middle of a customer conversation, just isn't where humans put their energy.
 
 </div>
 
-**Call Intelligence is the next version of that feedback loop.** Instead of asking humans to manually log feature requests, it reads every customer conversation automatically — Fireflies transcripts, HubSpot emails, Intercom chats, NPS surveys — and uses Claude to extract every request, label it, deduplicate it against past mentions, and put it in front of the Product team with verbatim evidence.
+**Call Intelligence is the next version of that feedback loop.** Instead of asking humans to manually log feature requests, it reads every customer conversation automatically (Fireflies transcripts, HubSpot emails, Intercom chats, NPS surveys) and uses Claude to extract every request, label it, deduplicate it against past mentions, and put it in front of the Product team with verbatim evidence.
 
-The bottleneck moves from *"do humans remember to log this?"* to *"do customers say it at all?"* — which is a much smaller, much more solvable problem.
+The bottleneck moves from *"do humans remember to log this?"* to *"do customers say it at all?"* That's a much smaller, much more solvable problem.
 
 This guide is how you build your own version, even if you've never written code before.
 
@@ -143,7 +143,7 @@ Ready? [Start with the 101 →](docs/101-your-first-ai-tool/){: .btn .btn-primar
 ---
 
 <small>
-Questions or want to chat? Find me on <a href="https://www.linkedin.com/in/lauralitton/">LinkedIn</a>, email <a href="mailto:laura@liveschoolinc.com">laura@liveschoolinc.com</a>, or <a href="https://liveschoolapp.com/bc/book/chat-with-laura-liveschool">grab time on my calendar</a> — which I also built with Claude Code.
+Questions or want to chat? Find me on <a href="https://www.linkedin.com/in/lauralitton/">LinkedIn</a>, email <a href="mailto:laura@liveschoolinc.com">laura@liveschoolinc.com</a>, or <a href="https://liveschoolapp.com/bc/book/chat-with-laura-liveschool">grab time on my calendar</a>, which I also built with Claude Code.
 <br><br>
 Source for this guide is on <a href="https://github.com/llitton/build-with-claude">GitHub</a>.
 </small>

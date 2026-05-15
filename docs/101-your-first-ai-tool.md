@@ -1,11 +1,11 @@
 ---
-title: 101 — Your first AI tool
+title: "101: Your first AI tool"
 nav_order: 2
 has_toc: true
 permalink: /docs/101-your-first-ai-tool/
 ---
 
-# 101 — Your first AI tool
+# 101: Your first AI tool
 {: .no_toc }
 
 **Time: about 30 minutes. Cost: free. Prior experience required: none.**
@@ -31,7 +31,7 @@ One thing: **Claude Desktop**. It's a free app from Anthropic.
 1. Go to [claude.ai/download](https://claude.ai/download)
 2. Download the app for your operating system (Mac, Windows, or Linux)
 3. Install it like any other app
-4. Open it and sign in (you can use Google to sign up — it's free to start)
+4. Open it and sign in (you can use Google to sign up, it's free to start)
 
 That's it. No GitHub. No coding tools. No accounts. Just one app.
 
@@ -59,9 +59,9 @@ That's the entire job.
 <details markdown="block">
 <summary><strong>Wait, but how does Claude actually know what I'm asking?</strong></summary>
 
-Claude is a Large Language Model — an AI that's read a huge amount of text and learned to predict what response would be helpful given some input. You don't need to know how it works under the hood to use it, the same way you don't need to know how your car's engine works to drive.
+Claude is a Large Language Model, an AI that's read a huge amount of text and learned to predict what response would be helpful given some input. You don't need to know how it works under the hood to use it, the same way you don't need to know how your car's engine works to drive.
 
-The mental model that works: **Claude is a very smart, very fast intern who has read everything ever written, has no ego, doesn't get tired, and will do anything you ask — but only exactly what you ask.** If you're vague, you get vague work back. If you're specific, you get great work back.
+The mental model that works: **Claude is a very smart, very fast intern who has read everything ever written, has no ego, doesn't get tired, and will do anything you ask, but only exactly what you ask.** If you're vague, you get vague work back. If you're specific, you get great work back.
 
 That's the entire skill. Specificity.
 
@@ -79,14 +79,14 @@ Now we'll do the real thing. We're going to:
 
 ### The sample transcript
 
-Copy this whole block (yes, the whole thing — including the speaker labels):
+Copy this whole block (yes, the whole thing, including the speaker labels):
 
 ```
-[Call: ABC Elementary — Renewal conversation — 2026-03-12]
+[Call: ABC Elementary, Renewal conversation, 2026-03-12]
 
 Sarah (Customer Success): Hi Maria, thanks for jumping on. I wanted to walk through the renewal and hear how this year has gone.
 
-Maria (Principal, ABC Elementary): Yeah, happy to. Overall — really positive. The teachers are using it daily, the kids love the points, and our discipline referrals are down maybe 30% from last year.
+Maria (Principal, ABC Elementary): Yeah, happy to. Overall, really positive. The teachers are using it daily, the kids love the points, and our discipline referrals are down maybe 30% from last year.
 
 Sarah: That's amazing. Anything that's been frustrating?
 
@@ -94,35 +94,35 @@ Maria: Honestly, the biggest thing is the parent app. Parents want to see their 
 
 Sarah: Got it. I'll write that up.
 
-Maria: Also — and this is smaller — but when teachers give a behavior award, there's no way to attach a photo. Like, if a kid does something amazing and the teacher wants to capture the moment, they have to take a photo separately and text it to the parent. It would be cool if the photo could just live in the app, attached to the award.
+Maria: Also, and this is smaller, but when teachers give a behavior award, there's no way to attach a photo. Like, if a kid does something amazing and the teacher wants to capture the moment, they have to take a photo separately and text it to the parent. It would be cool if the photo could just live in the app, attached to the award.
 
 Sarah: Oh that's a good one. We've heard that from a few other schools too actually.
 
-Maria: And then the other thing — the reporting. Right now when I run a report it only shows me the current month. I want to be able to pick a date range. Like, "show me September through December." Especially for parent conferences, I need to be able to pull a specific window.
+Maria: And then the other thing, the reporting. Right now when I run a report it only shows me the current month. I want to be able to pick a date range. Like, "show me September through December." Especially for parent conferences, I need to be able to pull a specific window.
 
 Sarah: Yeah, custom date ranges have been on the roadmap for a while. I'll mark you as another vote for it.
 
-Maria: Cool. Other than that, things are great. Oh — one bug actually. Sometimes when a teacher logs in on the iPad, the app crashes the first time. They have to close it and reopen it and then it works. It only happens the first time of the day.
+Maria: Cool. Other than that, things are great. Oh, one bug actually. Sometimes when a teacher logs in on the iPad, the app crashes the first time. They have to close it and reopen it and then it works. It only happens the first time of the day.
 
 Sarah: Weird, I'll file that with engineering. Anything else?
 
 Maria: No, I think that's everything.
 
-Sarah: Great. So for renewal — same package as last year?
+Sarah: Great. So for renewal, same package as last year?
 
 Maria: Yep, sounds good. Send me the paperwork and I'll get it signed this week.
 ```
 
 ### The prompt
 
-Now paste this into Claude *along with* the transcript (you can put them in the same message — Claude will figure it out):
+Now paste this into Claude *along with* the transcript (you can put them in the same message, Claude will figure it out):
 
 > I'm going to paste a customer call transcript below. Please extract every distinct feature request, bug report, or piece of product feedback. Return your answer as a JSON array. Each item should have:
 >
 > - `type` ("feature_request", "bug", or "feedback")
 > - `summary` (one short sentence, in the customer's voice)
 > - `detail` (a few sentences with full context)
-> - `urgency` ("low", "medium", or "high") — your best guess based on tone
+> - `urgency` ("low", "medium", or "high"), your best guess based on tone
 >
 > Here is the transcript:
 >
@@ -163,7 +163,7 @@ Claude will return something close to this:
 ]
 ```
 
-**Stop and look at that.** You just turned a wall of conversational text into clean, structured data. The principal mentioned four things in passing. Claude pulled them all out, labeled them, and rated their urgency. **That's the entire job of Call Intelligence.** Every call we process — hundreds a week — runs through a version of that one prompt.
+**Stop and look at that.** You just turned a wall of conversational text into clean, structured data. The principal mentioned four things in passing. Claude pulled them all out, labeled them, and rated their urgency. **That's the entire job of Call Intelligence.** Every call we process, hundreds a week, runs through a version of that one prompt.
 
 The whole tool, conceptually, is: *do that, but automatically, in the background, on every call that comes in, and put the results in a dashboard.*
 
@@ -172,7 +172,7 @@ The whole tool, conceptually, is: *do that, but automatically, in the background
 
 ---
 
-## Step 3: Iterate — make the output better
+## Step 3: Iterate, make the output better
 
 Here's the part nobody teaches you: **the first response from Claude is rarely the final answer.** You make it better by asking for changes in plain English. This is the single most important skill in this whole guide.
 
@@ -201,7 +201,7 @@ Now your output looks like real production data. School name, type, summary, det
 
 You designed a data schema. Without knowing what a data schema is.
 
-A "schema" is just "the shape of the data" — what fields exist, what types they are. Every database, every API, every spreadsheet has one. You usually have to design it up front, on paper, before you build anything. With Claude, you can design it iteratively by looking at examples and saying "add this field, remove that one, rename this."
+A "schema" is just "the shape of the data", what fields exist, what types they are. Every database, every API, every spreadsheet has one. You usually have to design it up front, on paper, before you build anything. With Claude, you can design it iteratively by looking at examples and saying "add this field, remove that one, rename this."
 
 This is a recurring pattern: **design by example.** You'll do it over and over as you build real software with Claude. Show it something concrete. React. Refine.
 
@@ -220,7 +220,7 @@ Some ideas:
 - **Paste customer reviews from a Google Maps listing.** Ask for sentiment, recurring praise, recurring complaints.
 - **Paste a contract.** Ask for every dollar amount, every date, and every obligation.
 
-For each one, you're doing exactly what Call Intelligence does — turning unstructured text into structured data. The only difference between "an experiment in Claude" and "a real tool" is whether it runs once, by hand, or automatically, in the background, every day.
+For each one, you're doing exactly what Call Intelligence does, turning unstructured text into structured data. The only difference between "an experiment in Claude" and "a real tool" is whether it runs once, by hand, or automatically, in the background, every day.
 
 **That gap is what 201 and 301 close.**
 
@@ -232,7 +232,7 @@ Take a second to appreciate this.
 
 You took a 700-word conversation. You wrote one prompt. You got back clean, labeled, structured data with evidence. **You did data extraction.** That's a thing engineers used to spend weeks building bespoke code for. You did it in two minutes by typing what you wanted.
 
-The reason this matters: most of the value in software is *not* in the fancy parts. It's in things exactly like this — taking messy input, turning it into structured output, doing something useful with it. Once you can do that, you can build most "internal tools" any company needs.
+The reason this matters: most of the value in software is *not* in the fancy parts. It's in things exactly like this, taking messy input, turning it into structured output, doing something useful with it. Once you can do that, you can build most "internal tools" any company needs.
 
 Call Intelligence is just this, scaled up.
 
@@ -248,9 +248,9 @@ You have three options.
 
 Spend a week running real call transcripts (or emails, or meetings) through this prompt by hand. You'll learn what works, what doesn't, and what fields you actually care about. The next level becomes way easier if you've already played here.
 
-### Go to [201 — Make it real](../201-make-it-real/).
+### Go to [201, Make it real](../201-make-it-real/).
 
-You'll build a tiny web app that does this automatically. Paste a transcript in one side, see a table of extracted items on the other. You'll install one new tool and write your first lines of "code" — except Claude writes them, you direct.
+You'll build a tiny web app that does this automatically. Paste a transcript in one side, see a table of extracted items on the other. You'll install one new tool and write your first lines of "code", except Claude writes them, you direct.
 
 ### Skip ahead to the [Case Study](../case-study/).
 
@@ -279,5 +279,5 @@ For when you come back to this page later.
 
 <div style="display: flex; justify-content: space-between; margin-top: 3em;">
 <a href="../../">← Home</a>
-<a href="../201-make-it-real/">201 — Make it real →</a>
+<a href="../201-make-it-real/">201, Make it real →</a>
 </div>

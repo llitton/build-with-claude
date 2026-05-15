@@ -1,11 +1,11 @@
 ---
-title: 301 — Build the real thing
+title: "301: Build the real thing"
 nav_order: 4
 has_toc: true
 permalink: /docs/301-build-the-real-thing/
 ---
 
-# 301 — Build the real thing
+# 301: Build the real thing
 {: .no_toc }
 
 **Time: a few weeks of evenings. Cost: ~$25/month in hosting + a few dollars in API calls. Prior experience required: completed [201](../201-make-it-real/) and shipped at least one Claude-generated script you can run end-to-end.**
@@ -14,7 +14,7 @@ permalink: /docs/301-build-the-real-thing/
 By the end of this page you'll have your own version of Call Intelligence: a deployed web app with a real database, scheduled background jobs that ingest new calls automatically, and a dashboard your team can use. **This is no longer a script. This is a small SaaS app.**
 {: .fs-5 .fw-300 }
 
-This page is less a step-by-step and more a **map of the territory** with the right prompts to direct Claude through each region. The actual implementation is too long to handhold — but if you finished 201 and you can ask Claude good questions, you can build all of this.
+This page is less a step-by-step and more a **map of the territory** with the right prompts to direct Claude through each region. The actual implementation is too long to handhold, but if you finished 201 and you can ask Claude good questions, you can build all of this.
 {: .fs-5 .fw-300 }
 
 <details markdown="block">
@@ -103,7 +103,7 @@ Supabase makes RLS easy to set up via their dashboard. You should learn it befor
 
 ### 2. The web framework (Next.js)
 
-Your script from 201 ran in a terminal. To put a UI in front of it, you need a web framework. **Next.js** is the default React framework — it lets you write the UI and the API in the same project. Pages, forms, and API endpoints all live together.
+Your script from 201 ran in a terminal. To put a UI in front of it, you need a web framework. **Next.js** is the default React framework, it lets you write the UI and the API in the same project. Pages, forms, and API endpoints all live together.
 
 <details markdown="block">
 <summary><strong>Why Next.js and not "just HTML"</strong></summary>
@@ -124,7 +124,7 @@ You can build a dashboard in plain HTML/CSS/JS. For a one-page tool it'd even be
 
 Your 201 script ran when you typed `node extract.js`. The real thing needs to run **without you**, every few hours, even when your laptop is closed. Two patterns cover this:
 
-**Vercel Cron** is built into Vercel hosting. You add a `crons` array to a `vercel.json` file in your repo with a `path` and a standard cron `schedule`. Vercel pings that URL on the schedule. The URL is a regular Next.js API route — you control what runs there. Free tier includes a generous number of cron invocations; you only pay if you hit serious volume.
+**Vercel Cron** is built into Vercel hosting. You add a `crons` array to a `vercel.json` file in your repo with a `path` and a standard cron `schedule`. Vercel pings that URL on the schedule. The URL is a regular Next.js API route, you control what runs there. Free tier includes a generous number of cron invocations; you only pay if you hit serious volume.
 
 **Webhooks** are when the *source system* pushes data to you in real time. Fireflies, for example, will POST to a URL you give it as soon as a transcript is ready. No polling, no delay. Your API route validates the payload and processes immediately.
 
@@ -136,7 +136,7 @@ Call Intelligence uses both:
 <details markdown="block">
 <summary><strong>What about Inngest, Trigger.dev, AWS Lambda?</strong></summary>
 
-These are "real" job-orchestration platforms — they add retries, parallel execution, dependency graphs, observability UIs, dead-letter queues. Useful when your scheduled work gets complex.
+These are "real" job-orchestration platforms, they add retries, parallel execution, dependency graphs, observability UIs, dead-letter queues. Useful when your scheduled work gets complex.
 
 **Call Intelligence doesn't use any of them.** Vercel Cron + plain Next.js routes was enough. We do use [Inngest](https://www.inngest.com) elsewhere in Base Camp for CRM-side workflows (deal sync, task reminders, weekly reports) where the retry/observability story matters more. But for "fetch new calls every 6 hours and run extraction," Vercel Cron is the lowest-overhead option that gets the job done.
 
@@ -146,7 +146,7 @@ If you find yourself needing retries that survive cron restarts, or one job that
 
 ### 4. The LLM gateway (OpenRouter)
 
-Your 201 script called Anthropic's API directly. That's fine — for one model, one provider. **OpenRouter** sits in front of every major LLM provider (Anthropic, OpenAI, Google, Meta, Mistral, etc.) and gives you one API that talks to all of them. You can swap models with a one-line change.
+Your 201 script called Anthropic's API directly. That's fine, for one model, one provider. **OpenRouter** sits in front of every major LLM provider (Anthropic, OpenAI, Google, Meta, Mistral, etc.) and gives you one API that talks to all of them. You can swap models with a one-line change.
 
 <details markdown="block">
 <summary><strong>Why a gateway instead of Anthropic direct</strong></summary>
@@ -157,7 +157,7 @@ For Call Intelligence specifically:
 - We use Claude Sonnet for the harder pass (deduplicate decisions, infer urgency from tone)
 - For some experiments we tried other models without changing any code
 
-OpenRouter also gives us a dashboard showing cost per feature/team/user — useful when you want to know *which* part of Call Intelligence is the expensive one. (Spoiler: deduplication, not extraction.)
+OpenRouter also gives us a dashboard showing cost per feature/team/user, useful when you want to know *which* part of Call Intelligence is the expensive one. (Spoiler: deduplication, not extraction.)
 
 There's no requirement to use OpenRouter. Direct Anthropic API works fine. The gateway just gives you optionality.
 
@@ -178,7 +178,7 @@ In a new project folder, start a Claude Code session and type:
 > 1. Walk me through the Supabase project setup I need to do in their dashboard.
 > 2. Design the database schema. I want at least two tables: one for individual "mentions" (each row = one feature request from one call) and one for canonical "features" (deduplicated). Each mention links to a feature. Walk me through your reasoning.
 > 3. Write the SQL migration to create those tables.
-> 4. Write the Next.js scaffolding — install Next.js, set up the Supabase client, write one API route that accepts a transcript and writes extracted mentions to the database.
+> 4. Write the Next.js scaffolding, install Next.js, set up the Supabase client, write one API route that accepts a transcript and writes extracted mentions to the database.
 > 5. Write a tiny page (`/`) with a textarea where I paste a transcript, a button that POSTs to the API route, and the extracted results displayed below.
 >
 > Don't write everything at once. Walk me through each piece. Ask me questions if anything is unclear about my needs.
@@ -196,11 +196,11 @@ That's a real app. You can show it to a coworker.
 <details markdown="block">
 <summary><strong>What the Call Intelligence schema actually looks like</strong></summary>
 
-For reference (don't copy exactly — your needs differ — but useful to see the real shape):
+For reference (don't copy exactly, your needs differ, but useful to see the real shape):
 
-- `ci_feature_requests` — canonical deduplicated features. Columns: `id`, `summary`, `detail`, `category`, `status` ("new", "in_progress", "shipped"), `owner_id`, `created_at`, `updated_at`.
-- `ci_feature_request_mentions` — every individual mention. Columns: `id`, `feature_request_id` (FK), `source` ("fireflies", "hubspot", "intercom", "nps"), `source_id`, `customer_company`, `customer_email`, `quote`, `urgency`, `created_at`.
-- `ci_feature_dedupe_candidates` — pairs of features the matching algorithm thinks might be duplicates, awaiting human review. Columns: `id`, `feature_a_id`, `feature_b_id`, `similarity_score`, `status` ("pending", "merged", "rejected").
+- `ci_feature_requests`, canonical deduplicated features. Columns: `id`, `summary`, `detail`, `category`, `status` ("new", "in_progress", "shipped"), `owner_id`, `created_at`, `updated_at`.
+- `ci_feature_request_mentions`, every individual mention. Columns: `id`, `feature_request_id` (FK), `source` ("fireflies", "hubspot", "intercom", "nps"), `source_id`, `customer_company`, `customer_email`, `quote`, `urgency`, `created_at`.
+- `ci_feature_dedupe_candidates`, pairs of features the matching algorithm thinks might be duplicates, awaiting human review. Columns: `id`, `feature_a_id`, `feature_b_id`, `similarity_score`, `status` ("pending", "merged", "rejected").
 
 There are 13 more tables for source-specific sync state (where each source left off), HubSpot caching, Slack notifications, and admin auth. You don't need most of those until you're integrating real sources.
 
@@ -210,7 +210,7 @@ There are 13 more tables for source-specific sync state (where each source left 
 
 ## Phase 2: Deploy it (so others can use it)
 
-You have an app on your laptop. Now we put it on the internet. **Vercel** is the easiest way for a Next.js app — push to GitHub, Vercel auto-deploys.
+You have an app on your laptop. Now we put it on the internet. **Vercel** is the easiest way for a Next.js app, push to GitHub, Vercel auto-deploys.
 
 ### The prompt
 
@@ -222,7 +222,7 @@ You have an app on your laptop. Now we put it on the internet. **Vercel** is the
 > 4. How to make sure the deployment auto-updates when I push new commits.
 > 5. How to add basic Google sign-in (only people from my company's domain can use the app).
 
-The Google sign-in piece is critical — your 201 script was for you. The deployed app shouldn't be open to the public internet. Supabase has built-in Google OAuth; Claude will walk you through it.
+The Google sign-in piece is critical, your 201 script was for you. The deployed app shouldn't be open to the public internet. Supabase has built-in Google OAuth; Claude will walk you through it.
 
 By the end of this phase, you have a real URL like `your-tool.vercel.app` that your team can log into.
 
@@ -236,7 +236,7 @@ This is the big jump. So far the script only runs when someone pastes a transcri
 
 > I want to add scheduled background syncs from Fireflies AI. Two paths:
 >
-> 1. **Webhook (primary)** — Fireflies will POST to a URL of mine when a transcript is ready. Write the API route at `/api/call-intelligence/webhooks/fireflies` that:
+> 1. **Webhook (primary)**, Fireflies will POST to a URL of mine when a transcript is ready. Write the API route at `/api/call-intelligence/webhooks/fireflies` that:
 >    - Verifies a shared secret in the request headers
 >    - Parses the payload, checks the event type
 >    - Skips calls already processed (idempotency)
@@ -244,7 +244,7 @@ This is the big jump. So far the script only runs when someone pastes a transcri
 >    - Extracts feature requests using OpenRouter (Claude Haiku)
 >    - Writes the mentions to the database
 >
-> 2. **Vercel Cron (fallback)** — every 6 hours, fetch any Fireflies transcripts from the last 48 hours that didn't come through the webhook. Same processing pipeline. Add the schedule to `vercel.json`:
+> 2. **Vercel Cron (fallback)**, every 6 hours, fetch any Fireflies transcripts from the last 48 hours that didn't come through the webhook. Same processing pipeline. Add the schedule to `vercel.json`:
 >
 >    ```json
 >    {
@@ -256,11 +256,11 @@ This is the big jump. So far the script only runs when someone pastes a transcri
 >
 > Both endpoints should authenticate with a `CRON_SECRET` env var (Vercel sets this header on cron-triggered requests; the webhook validates its own Fireflies signature).
 >
-> Maintain a `ci_fireflies_sync_state` row that records where the last sync left off. Handle errors gracefully — if one transcript fails, the others should still succeed and the failure should be logged to a `ci_fireflies_sync_runs` table.
+> Maintain a `ci_fireflies_sync_state` row that records where the last sync left off. Handle errors gracefully, if one transcript fails, the others should still succeed and the failure should be logged to a `ci_fireflies_sync_runs` table.
 
-Vercel Cron is dead simple — the schedule lives in one file (`vercel.json`), and the handler is a plain Next.js API route. The downside vs. a real job platform: no retry-with-backoff, no fan-out parallelism, no debug UI. For Call Intelligence's volume (~hundreds of calls/week), none of that matters.
+Vercel Cron is dead simple, the schedule lives in one file (`vercel.json`), and the handler is a plain Next.js API route. The downside vs. a real job platform: no retry-with-backoff, no fan-out parallelism, no debug UI. For Call Intelligence's volume (~hundreds of calls/week), none of that matters.
 
-**For visibility**, write every sync run into a `ci_*_sync_runs` table with status, item count, and error message. That table *is* your "Inngest UI" — query it to see what happened on each run. Add a `/admin/sync-health` page that reads it and you have a perfectly serviceable dashboard.
+**For visibility**, write every sync run into a `ci_*_sync_runs` table with status, item count, and error message. That table *is* your "Inngest UI", query it to see what happened on each run. Add a `/admin/sync-health` page that reads it and you have a perfectly serviceable dashboard.
 
 <details markdown="block">
 <summary><strong>The pattern: "sync state" tables</strong></summary>
@@ -288,12 +288,12 @@ This is the hardest part conceptually. There's no one right answer. Here's how t
 
 ### Two-stage deduplication
 
-1. **Cheap pre-filter** — for each new mention, find the top 5 existing features with similar summaries using simple string similarity (e.g., trigrams) or vector embeddings.
-2. **LLM judgment** — for each candidate pair, ask Claude: *"Are these the same feature request? Yes/no/maybe + reasoning."* If yes, link the mention to the existing feature. If maybe, queue it for human review. If no, create a new feature.
+1. **Cheap pre-filter**, for each new mention, find the top 5 existing features with similar summaries using simple string similarity (e.g., trigrams) or vector embeddings.
+2. **LLM judgment**, for each candidate pair, ask Claude: *"Are these the same feature request? Yes/no/maybe + reasoning."* If yes, link the mention to the existing feature. If maybe, queue it for human review. If no, create a new feature.
 
 ### The prompt
 
-> I want to add deduplication to my pipeline. When a new mention is extracted, I want to check if it matches an existing canonical feature in the database. If it does, link it; if it doesn't, create a new feature. Some matches will be ambiguous — those should go into a `ci_feature_dedupe_candidates` table for me to review manually in a triage UI.
+> I want to add deduplication to my pipeline. When a new mention is extracted, I want to check if it matches an existing canonical feature in the database. If it does, link it; if it doesn't, create a new feature. Some matches will be ambiguous, those should go into a `ci_feature_dedupe_candidates` table for me to review manually in a triage UI.
 >
 > Walk me through the design before writing code. Specifically:
 >
@@ -302,7 +302,7 @@ This is the hardest part conceptually. There's no one right answer. Here's how t
 > - The schema for the candidates table
 > - The triage UI (a simple page where I see two features side by side and pick "merge", "keep separate", or "skip")
 
-Be ready to spend a few sessions on this. Deduplication is the most subjective part of the system — what counts as "the same feature" depends on how you think about your product.
+Be ready to spend a few sessions on this. Deduplication is the most subjective part of the system, what counts as "the same feature" depends on how you think about your product.
 
 <details markdown="block">
 <summary><strong>What we actually do in Call Intelligence</strong></summary>
@@ -322,7 +322,7 @@ The first version we shipped was *just* the embedding match with no LLM judgment
 
 ## Phase 5: The polish that makes it feel like a real product
 
-Once the pipeline works, the dashboard becomes the thing you spend time on. This is where Claude Code shines — UI tweaks are a one-line prompt away, and you can hot-reload the browser to see the change instantly.
+Once the pipeline works, the dashboard becomes the thing you spend time on. This is where Claude Code shines, UI tweaks are a one-line prompt away, and you can hot-reload the browser to see the change instantly.
 
 Prompts you'll find yourself using:
 
@@ -330,7 +330,7 @@ Prompts you'll find yourself using:
 
 > When I click on a feature, take me to a detail page showing all its mentions with quotes, source links, customer name, and a timeline of when each mention came in.
 
-> Add a "merge" button next to each feature. When clicked, show a search bar — let me find another feature and merge them. Move all mentions to the chosen canonical one and soft-delete the merged one.
+> Add a "merge" button next to each feature. When clicked, show a search bar, let me find another feature and merge them. Move all mentions to the chosen canonical one and soft-delete the merged one.
 
 > Add a Slack integration: when a new feature crosses 5 mentions, post a notification to a `#product-feedback` channel with the summary, top 3 quotes, and a link.
 
@@ -342,7 +342,7 @@ Each of these is one prompt → one weekend evening of work. The app gets better
 
 ## The Call Intelligence file map
 
-If you want to see how the real thing is structured, the Call Intelligence code is at `apps/base-camp/src/app/(tools)/call-intelligence/` and `apps/base-camp/src/lib/call-intelligence/` in the LiveSchool Quantum repo. (Private repo — but the structure is reusable.)
+If you want to see how the real thing is structured, the Call Intelligence code is at `apps/base-camp/src/app/(tools)/call-intelligence/` and `apps/base-camp/src/lib/call-intelligence/` in the LiveSchool Quantum repo. (Private repo, but the structure is reusable.)
 
 ```
 src/app/(tools)/call-intelligence/
@@ -378,7 +378,7 @@ src/lib/call-intelligence/
 
 The pattern: **API routes are thin** (they validate input and call into `lib/`). **Library code is where the real logic lives.** **Pages are presentation only** (they call API routes or read directly from Supabase with RLS).
 
-If you want a single file to read first, `feature-request-extractor.ts` is the heart — it's the same prompt you wrote in 101, productionized.
+If you want a single file to read first, `feature-request-extractor.ts` is the heart, it's the same prompt you wrote in 101, productionized.
 
 ---
 
@@ -398,13 +398,13 @@ Keep a single document (a Notion page, a 1Password vault) listing every key, whe
 </details>
 
 <details markdown="block">
-<summary><strong>Observability — knowing when the pipeline broke</strong></summary>
+<summary><strong>Observability, knowing when the pipeline broke</strong></summary>
 
 A scheduled job that silently fails is worse than a job that doesn't exist. You'll need:
 
-- **Logging** — every sync run writes a row to a `*_sync_runs` table with status, item counts, and error messages. Pull these into a "Sync Health" page.
-- **Alerting** — Slack/email notification when a sync fails N times in a row, or when no items have been processed in 24 hours from a source that usually has daily activity.
-- **Dashboards** — Vercel's deployment + cron logs show what ran when; Supabase's logs show DB errors; OpenRouter shows API usage. Bookmark all three. Your own `*_sync_runs` table is also a dashboard if you put a page on top of it.
+- **Logging**, every sync run writes a row to a `*_sync_runs` table with status, item counts, and error messages. Pull these into a "Sync Health" page.
+- **Alerting**, Slack/email notification when a sync fails N times in a row, or when no items have been processed in 24 hours from a source that usually has daily activity.
+- **Dashboards**, Vercel's deployment + cron logs show what ran when; Supabase's logs show DB errors; OpenRouter shows API usage. Bookmark all three. Your own `*_sync_runs` table is also a dashboard if you put a page on top of it.
 
 Ask Claude to add each of these in turn. Don't try to design them all at once.
 
@@ -417,10 +417,10 @@ Calling an LLM for every transcript is slow (1-10 seconds per call). For batch j
 
 Strategies:
 
-- **Streaming** — show the partial response as it generates instead of waiting for full completion.
-- **Caching** — same input + same prompt = same output. Cache aggressively.
-- **Background processing** — never block a user-facing request on an LLM call. Queue the work, show a "processing..." state, update when done.
-- **Smaller models** — Claude Haiku is dramatically faster than Sonnet for simple tasks.
+- **Streaming**, show the partial response as it generates instead of waiting for full completion.
+- **Caching**, same input + same prompt = same output. Cache aggressively.
+- **Background processing**, never block a user-facing request on an LLM call. Queue the work, show a "processing..." state, update when done.
+- **Smaller models**, Claude Haiku is dramatically faster than Sonnet for simple tasks.
 
 </details>
 
@@ -429,9 +429,9 @@ Strategies:
 
 When you have one transcript a week, you don't notice cost. When you have a thousand, you do. Things that have surprised teams:
 
-- **Embedding everything** — vector search is cheap per item but adds up at scale.
-- **Re-extracting on schema changes** — every time you add a new field to the JSON shape, are you re-running every old transcript? That can be a $500 weekend.
-- **Long-context prompts** — pasting in 10 example outputs to "help Claude understand the schema" multiplies your per-call cost by 10. Use system prompts and structured output instead.
+- **Embedding everything**, vector search is cheap per item but adds up at scale.
+- **Re-extracting on schema changes**, every time you add a new field to the JSON shape, are you re-running every old transcript? That can be a $500 weekend.
+- **Long-context prompts**, pasting in 10 example outputs to "help Claude understand the schema" multiplies your per-call cost by 10. Use system prompts and structured output instead.
 
 Set a budget alert in your OpenRouter / Anthropic account. Check costs weekly.
 
@@ -472,8 +472,8 @@ For when you come back to this page later.
 - **Architecture**: data sources → scheduled extraction → DB (mentions table) → dedup → DB (canonical features) → app
 - **Big mental models**:
   - *Mentions* (raw evidence, one per source event) vs. *canonical features* (deduplicated, owned by humans)
-  - *Sync state* — every source needs to know where it left off
-  - *Two-stage dedup* — cheap filter, expensive LLM judgment, queue-for-review middle band
+  - *Sync state*, every source needs to know where it left off
+  - *Two-stage dedup*, cheap filter, expensive LLM judgment, queue-for-review middle band
 - **Order of operations**: get data in (CSV → DB), get app deployed (Vercel), schedule the ingestion (Vercel Cron in `vercel.json`, plus a webhook for any source that supports real-time), add dedup last
 - **Mindset shift from 201**: You're no longer building a script. You're maintaining a system. The job is design, observability, and incremental improvement, not big rewrites.
 
