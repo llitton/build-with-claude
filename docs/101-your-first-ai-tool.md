@@ -254,7 +254,7 @@ You'll build a tiny web app that does this automatically. Paste a transcript in 
 
 ### Skip ahead to the [Case Study](../case-study/).
 
-If you want to see how I went from this exact prompt to the live tool product managers use weekly, the case study walks the whole arc.
+If you want to see how I went from this exact prompt to the live tool our team uses weekly, the case study walks the whole arc.
 
 </div>
 

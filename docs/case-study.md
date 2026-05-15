@@ -23,7 +23,7 @@ A linear story of how a non-engineer (me, Laura) turned a frustrating manual wor
 
 ## The problem (before I built anything)
 
-I work at [LiveSchool](https://liveschoolinc.com), an EdTech company. We make a behavior management tool used by hundreds of K-12 schools. Like every SaaS company, we have customer success calls, support tickets, NPS surveys, sales conversations. Customers told us what they wanted constantly.
+I work at [LiveSchool](https://liveschoolinc.com), an EdTech company. We make a behavior management tool used by thousands of K-12 schools. Like every SaaS company, we have customer success calls, support tickets, NPS surveys, sales conversations. Customers told us what they wanted constantly.
 
 **And we kept losing it.**
 
@@ -72,8 +72,8 @@ I ran the script. It produced a 400-row CSV. I opened it in Google Sheets. I sha
 
 People lost their minds. *"How did you make this? Can we filter by school?"* The script ran once, by hand, on my laptop. There was no app. There was no dashboard. It was a CSV. It was already useful enough to be a thing people wanted.
 
-![Placeholder: screenshot of the very first features.csv in Google Sheets](../assets/images/case-study-first-csv-placeholder.png)
-*Add screenshot here: the first features.csv. Crude. Useful.*
+![An illustrative early features.csv opened in Google Sheets, with unformatted rows of feature requests, urgencies, schools, and verbatim quotes](../assets/images/first-features-csv.svg)
+*Illustrative — the first features.csv. Crude, no formatting, no filters, no summary view. Just rows of customer asks with the verbatim quote attached. It was already more than we'd ever had.*
 
 ---
 
@@ -99,7 +99,7 @@ By the end:
 I posted the URL in #product. Within 48 hours, three different teams were using it.
 
 {: .story }
-> **The lesson:** I had a small panic-attack moment in week two when somebody asked me to "add a way to assign features to product managers." It sounded like a "real software" feature. I assumed it would take me weeks. It took me 45 minutes. Claude Code scaffolded a `owner_id` column, a select dropdown, an API route to update it, and the UI to show owners in the dashboard. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
+> **The lesson:** I had a small panic-attack moment in week two when somebody asked me to "add a way to assign each feature to an internal owner so we can track who's responsible for chasing it down." It sounded like a "real software" feature. I assumed it would take me weeks. It took me 45 minutes. Claude Code scaffolded an `owner_id` column, a select dropdown, an API route to update it, and the UI to show owners in the dashboard. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
 
 ---
 
@@ -121,7 +121,7 @@ I did this incrementally, one source per weekend:
 - **Weekend 2**: Intercom sync. Easier — their API is cleaner.
 - **Weekend 3**: NPS survey ingestion. Different shape (single short text response, not a transcript), so the extraction prompt had to change. I added a `source_type` field that flows through to the prompt selection.
 
-By the end of the month, four sources flowed in automatically every 6 hours via Inngest. **The dashboard now had ~10,000 mentions in it.**
+By the end of the month, four sources flowed in automatically — Fireflies via webhook (real-time, with a Vercel Cron fallback every 6 hours), and HubSpot/Intercom/NPS via Vercel Cron on their own schedules. **The dashboard now had ~10,000 mentions in it.**
 
 That was the moment deduplication stopped being optional.
 
@@ -167,7 +167,7 @@ The system was working. Now it had to fit into how the team actually worked.
 
 ![Slack notification from the LiveSchool Call Intelligence bot showing two new feature requests with source quotes and context](../assets/images/slack-feature-alert.png)
 *The product team's #feature-requests channel. Every new request lands here automatically with the customer's verbatim quote and a link back to the dashboard.*
-- **Owner assignment** so each feature has a product manager attached
+- **Owner assignment** so each feature has someone on the team tracking it
 - **Status workflow** (new → considering → planned → shipped)
 - **Customer-facing announcements** for shipped features
 
@@ -184,7 +184,7 @@ This phase taught me the most about code organization. Earlier I had everything 
 - **~50,000 mentions** processed, deduplicated into ~3,500 canonical features
 - **Used weekly** by product, customer success, and sales teams
 - **~$40/month** in LLM costs (OpenRouter, mostly Haiku for extraction, Sonnet for dedup judgment)
-- **~$25/month** in hosting (Vercel + Supabase + Inngest)
+- **~$25/month** in hosting (Vercel + Supabase, both on paid tiers; cron scheduling is included)
 
 It's not a moonshot. It's a real internal tool that produces real decisions every week. **That's the bar I wish people aimed at more.**
 

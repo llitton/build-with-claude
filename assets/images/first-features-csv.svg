@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720"
+     font-family="'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <clipPath id="sheet-clip">
+      <rect width="1280" height="720" rx="6"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#sheet-clip)">
+    <!-- White page background -->
+    <rect width="1280" height="720" fill="#ffffff"/>
+
+    <!-- Google-ish top bar -->
+    <rect width="1280" height="56" fill="#f8f9fa"/>
+    <rect y="55" width="1280" height="1" fill="#e8eaed"/>
+
+    <!-- Sheets-style icon (green) -->
+    <rect x="20" y="16" width="22" height="24" rx="2" fill="#0f9d58"/>
+    <polygon points="36,16 42,22 36,22" fill="#0a7e44"/>
+    <rect x="24" y="24" width="14" height="1.5" fill="#ffffff"/>
+    <rect x="24" y="28" width="14" height="1.5" fill="#ffffff"/>
+    <rect x="24" y="32" width="14" height="1.5" fill="#ffffff"/>
+
+    <!-- File title (looks unformatted, like a freshly-saved csv) -->
+    <text x="56" y="28" font-size="15" fill="#202124">feature-requests-march.csv</text>
+    <text x="56" y="46" font-size="11" fill="#5f6368">Last edit was 2 minutes ago · Saved to Drive</text>
+
+    <!-- Spreadsheet column letter row -->
+    <rect y="56" width="1280" height="22" fill="#f8f9fa"/>
+    <rect y="77" width="1280" height="1" fill="#e8eaed"/>
+
+    <!-- Row 0 corner cell -->
+    <rect x="0" y="56" width="40" height="22" fill="#f8f9fa"/>
+    <rect x="40" y="56" width="1" height="22" fill="#e8eaed"/>
+
+    <!-- Column letters A-E -->
+    <text x="100" y="72" font-size="12" fill="#5f6368" text-anchor="middle">A</text>
+    <text x="260" y="72" font-size="12" fill="#5f6368" text-anchor="middle">B</text>
+    <text x="510" y="72" font-size="12" fill="#5f6368" text-anchor="middle">C</text>
+    <text x="640" y="72" font-size="12" fill="#5f6368" text-anchor="middle">D</text>
+    <text x="900" y="72" font-size="12" fill="#5f6368" text-anchor="middle">E</text>
+
+    <!-- Column separators -->
+    <line x1="180" y1="56" x2="180" y2="720" stroke="#e8eaed" stroke-width="1"/>
+    <line x1="440" y1="56" x2="440" y2="720" stroke="#e8eaed" stroke-width="1"/>
+    <line x1="580" y1="56" x2="580" y2="720" stroke="#e8eaed" stroke-width="1"/>
+    <line x1="800" y1="56" x2="800" y2="720" stroke="#e8eaed" stroke-width="1"/>
+    <line x1="1280" y1="56" x2="1280" y2="720" stroke="#e8eaed" stroke-width="1"/>
+
+    <!-- Row 1 (header, unformatted — just text in cells like everything else) -->
+    <rect x="0" y="78" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="98" font-size="12" fill="#5f6368" text-anchor="middle">1</text>
+    <line y1="110" x2="1280" y2="110" stroke="#e8eaed"/>
+    <text x="50" y="98" font-size="13" fill="#202124">type</text>
+    <text x="190" y="98" font-size="13" fill="#202124">summary</text>
+    <text x="450" y="98" font-size="13" fill="#202124">urgency</text>
+    <text x="590" y="98" font-size="13" fill="#202124">school</text>
+    <text x="810" y="98" font-size="13" fill="#202124">quote</text>
+
+    <!-- Data rows -->
+    <!-- Row 2 -->
+    <rect x="0" y="110" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="130" font-size="12" fill="#5f6368" text-anchor="middle">2</text>
+    <line y1="142" x2="1280" y2="142" stroke="#e8eaed"/>
+    <text x="50" y="130" font-size="13" fill="#202124">feature_request</text>
+    <text x="190" y="130" font-size="13" fill="#202124">Custom date ranges in reports</text>
+    <text x="450" y="130" font-size="13" fill="#202124">high</text>
+    <text x="590" y="130" font-size="13" fill="#202124">ABC Elementary</text>
+    <text x="810" y="130" font-size="13" fill="#202124">"I need to pull September through December"</text>
+
+    <!-- Row 3 -->
+    <rect x="0" y="142" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="162" font-size="12" fill="#5f6368" text-anchor="middle">3</text>
+    <line y1="174" x2="1280" y2="174" stroke="#e8eaed"/>
+    <text x="50" y="162" font-size="13" fill="#202124">feature_request</text>
+    <text x="190" y="162" font-size="13" fill="#202124">Show full year of points in parent app</text>
+    <text x="450" y="162" font-size="13" fill="#202124">high</text>
+    <text x="590" y="162" font-size="13" fill="#202124">ABC Elementary</text>
+    <text x="810" y="162" font-size="13" fill="#202124">"Parents want to see the whole year"</text>
+
+    <!-- Row 4 -->
+    <rect x="0" y="174" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="194" font-size="12" fill="#5f6368" text-anchor="middle">4</text>
+    <line y1="206" x2="1280" y2="206" stroke="#e8eaed"/>
+    <text x="50" y="194" font-size="13" fill="#202124">feature_request</text>
+    <text x="190" y="194" font-size="13" fill="#202124">Attach photo to behavior award</text>
+    <text x="450" y="194" font-size="13" fill="#202124">medium</text>
+    <text x="590" y="194" font-size="13" fill="#202124">ABC Elementary</text>
+    <text x="810" y="194" font-size="13" fill="#202124">"Teachers want to capture the moment"</text>
+
+    <!-- Row 5 -->
+    <rect x="0" y="206" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="226" font-size="12" fill="#5f6368" text-anchor="middle">5</text>
+    <line y1="238" x2="1280" y2="238" stroke="#e8eaed"/>
+    <text x="50" y="226" font-size="13" fill="#202124">bug</text>
+    <text x="190" y="226" font-size="13" fill="#202124">iPad app crashes on first launch</text>
+    <text x="450" y="226" font-size="13" fill="#202124">medium</text>
+    <text x="590" y="226" font-size="13" fill="#202124">ABC Elementary</text>
+    <text x="810" y="226" font-size="13" fill="#202124">"Always happens once per day"</text>
+
+    <!-- Row 6 -->
+    <rect x="0" y="238" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="258" font-size="12" fill="#5f6368" text-anchor="middle">6</text>
+    <line y1="270" x2="1280" y2="270" stroke="#e8eaed"/>
+    <text x="50" y="258" font-size="13" fill="#202124">feature_request</text>
+    <text x="190" y="258" font-size="13" fill="#202124">Custom date ranges in reports</text>
+    <text x="450" y="258" font-size="13" fill="#202124">high</text>
+    <text x="590" y="258" font-size="13" fill="#202124">Westfield Academy</text>
+    <text x="810" y="258" font-size="13" fill="#202124">"Need to filter by quarter for board meetings"</text>
+
+    <!-- Row 7 -->
+    <rect x="0" y="270" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="290" font-size="12" fill="#5f6368" text-anchor="middle">7</text>
+    <line y1="302" x2="1280" y2="302" stroke="#e8eaed"/>
+    <text x="50" y="290" font-size="13" fill="#202124">feature_request</text>
+    <text x="190" y="290" font-size="13" fill="#202124">Bulk import students from CSV</text>
+    <text x="450" y="290" font-size="13" fill="#202124">high</text>
+    <text x="590" y="290" font-size="13" fill="#202124">Northbrook Middle</text>
+    <text x="810" y="290" font-size="13" fill="#202124">"Manually adding 800 students is brutal"</text>
+
+    <!-- Row 8 -->
+    <rect x="0" y="302" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="322" font-size="12" fill="#5f6368" text-anchor="middle">8</text>
+    <line y1="334" x2="1280" y2="334" stroke="#e8eaed"/>
+    <text x="50" y="322" font-size="13" fill="#202124">feature_request</text>
+    <text x="190" y="322" font-size="13" fill="#202124">Mobile-friendly admin dashboard</text>
+    <text x="450" y="322" font-size="13" fill="#202124">low</text>
+    <text x="590" y="322" font-size="13" fill="#202124">Sunrise School</text>
+    <text x="810" y="322" font-size="13" fill="#202124">"Can't manage on my phone during hallway duty"</text>
+
+    <!-- Row 9 -->
+    <rect x="0" y="334" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="354" font-size="12" fill="#5f6368" text-anchor="middle">9</text>
+    <line y1="366" x2="1280" y2="366" stroke="#e8eaed"/>
+    <text x="50" y="354" font-size="13" fill="#202124">bug</text>
+    <text x="190" y="354" font-size="13" fill="#202124">Login link expires too fast</text>
+    <text x="450" y="354" font-size="13" fill="#202124">high</text>
+    <text x="590" y="354" font-size="13" fill="#202124">Lakeside Prep</text>
+    <text x="810" y="354" font-size="13" fill="#202124">"I have to re-login every time I switch tabs"</text>
+
+    <!-- Row 10 -->
+    <rect x="0" y="366" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="386" font-size="12" fill="#5f6368" text-anchor="middle">10</text>
+    <line y1="398" x2="1280" y2="398" stroke="#e8eaed"/>
+    <text x="50" y="386" font-size="13" fill="#202124">feature_request</text>
+    <text x="190" y="386" font-size="13" fill="#202124">Show full year of points in parent app</text>
+    <text x="450" y="386" font-size="13" fill="#202124">high</text>
+    <text x="590" y="386" font-size="13" fill="#202124">Westfield Academy</text>
+    <text x="810" y="386" font-size="13" fill="#202124">"Parents keep asking why they only see the week"</text>
+
+    <!-- Row 11 -->
+    <rect x="0" y="398" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="418" font-size="12" fill="#5f6368" text-anchor="middle">11</text>
+    <line y1="430" x2="1280" y2="430" stroke="#e8eaed"/>
+    <text x="50" y="418" font-size="13" fill="#202124">feature_request</text>
+    <text x="190" y="418" font-size="13" fill="#202124">Configurable point values by grade</text>
+    <text x="450" y="418" font-size="13" fill="#202124">medium</text>
+    <text x="590" y="418" font-size="13" fill="#202124">Northbrook Middle</text>
+    <text x="810" y="418" font-size="13" fill="#202124">"5th graders need different rewards than 8th"</text>
+
+    <!-- Row 12 -->
+    <rect x="0" y="430" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="450" font-size="12" fill="#5f6368" text-anchor="middle">12</text>
+    <line y1="462" x2="1280" y2="462" stroke="#e8eaed"/>
+    <text x="50" y="450" font-size="13" fill="#202124">feature_request</text>
+    <text x="190" y="450" font-size="13" fill="#202124">Export gradebook to PDF</text>
+    <text x="450" y="450" font-size="13" fill="#202124">medium</text>
+    <text x="590" y="450" font-size="13" fill="#202124">Westfield Academy</text>
+    <text x="810" y="450" font-size="13" fill="#202124">"Need PDFs for parent conferences"</text>
+
+    <!-- Empty rows for visual continuity -->
+    <rect x="0" y="462" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="482" font-size="12" fill="#5f6368" text-anchor="middle">13</text>
+    <line y1="494" x2="1280" y2="494" stroke="#e8eaed"/>
+
+    <rect x="0" y="494" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="514" font-size="12" fill="#5f6368" text-anchor="middle">14</text>
+    <line y1="526" x2="1280" y2="526" stroke="#e8eaed"/>
+
+    <rect x="0" y="526" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="546" font-size="12" fill="#5f6368" text-anchor="middle">15</text>
+    <line y1="558" x2="1280" y2="558" stroke="#e8eaed"/>
+
+    <rect x="0" y="558" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="578" font-size="12" fill="#5f6368" text-anchor="middle">16</text>
+    <line y1="590" x2="1280" y2="590" stroke="#e8eaed"/>
+
+    <rect x="0" y="590" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="610" font-size="12" fill="#5f6368" text-anchor="middle">17</text>
+    <line y1="622" x2="1280" y2="622" stroke="#e8eaed"/>
+
+    <rect x="0" y="622" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="642" font-size="12" fill="#5f6368" text-anchor="middle">18</text>
+    <line y1="654" x2="1280" y2="654" stroke="#e8eaed"/>
+
+    <rect x="0" y="654" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="674" font-size="12" fill="#5f6368" text-anchor="middle">19</text>
+    <line y1="686" x2="1280" y2="686" stroke="#e8eaed"/>
+
+    <rect x="0" y="686" width="40" height="32" fill="#f8f9fa"/>
+    <text x="20" y="706" font-size="12" fill="#5f6368" text-anchor="middle">20</text>
+
+    <!-- Row number column separator -->
+    <line x1="40" y1="56" x2="40" y2="720" stroke="#e8eaed" stroke-width="1"/>
+  </g>
+</svg>

@@ -51,8 +51,10 @@ Tools, links, communities, prompting patterns, and a glossary of every term that
 
 | Tool | What | Why | Cost |
 |---|---|---|---|
-| [Inngest](https://www.inngest.com) | Job scheduler + workflow engine | What Call Intelligence uses for scheduled syncs. Beautiful debug UI. | Free tier; paid above 50k runs/mo |
-| [Trigger.dev](https://trigger.dev) | Alternative to Inngest | Similar, different style. Worth comparing. | Free tier; paid above limits |
+| [Vercel Cron](https://vercel.com/docs/cron-jobs) | Scheduled HTTP requests to your own API routes | **What Call Intelligence uses.** Lowest-overhead path: add a `crons` array to `vercel.json` and Vercel pings your endpoints on the schedule. Built into Vercel hosting. | Included in Vercel hosting tiers |
+| Webhooks (provider-specific) | Source system POSTs to your URL on events | **What Call Intelligence uses for Fireflies.** Real-time ingestion when the source supports it. Each integration is custom. | Free (you build the receiver) |
+| [Inngest](https://www.inngest.com) | Job scheduler + workflow engine | Used elsewhere in Base Camp (CRM workflows, deal sync). Worth graduating to when you need retries, parallelism, or a debug UI for complex orchestration. | Free tier; paid above 50k runs/mo |
+| [Trigger.dev](https://trigger.dev) | Alternative to Inngest | Similar, different style. Worth comparing if Inngest doesn't fit. | Free tier; paid above limits |
 
 ### For hosting your app
 
@@ -183,7 +185,7 @@ Terms I tripped on. Defined casually.
 
 **Environment variable** — A piece of config (like an API key) stored *outside* your code. Lives in a `.env` file locally and in your hosting platform's settings in production. Keeps secrets out of git.
 
-**Inngest / Job queue** — A service that lets you write functions and have them run on a schedule, in response to events, or in the background. Handles retries and parallelism.
+**Inngest / Job queue** — A service that lets you write functions and have them run on a schedule, in response to events, or in the background. Handles retries and parallelism. Heavier than Vercel Cron; worth it for complex orchestration.
 
 **JSON** — A simple text format for structured data. What Claude outputs when you say "return as JSON." Looks like `{"key": "value", "list": [1, 2, 3]}`.
 
@@ -218,6 +220,8 @@ Terms I tripped on. Defined casually.
 **TypeScript** — JavaScript with types. Lets the editor catch errors before you run the code. Slightly more setup, much fewer bugs.
 
 **Vercel** — A hosting platform that auto-deploys Next.js apps from GitHub. Push to main → live in 60 seconds.
+
+**Vercel Cron** — A scheduling feature built into Vercel hosting. You add a `crons` array to `vercel.json` listing `path` + `schedule` pairs, and Vercel pings those URLs on the schedule. The handler is just a regular API route. Simplest cron path on Vercel.
 
 **Webhook** — An API in reverse: when something happens in another system (a new Fireflies call, a HubSpot deal update), they call *your* URL to notify you. The opposite of polling.
 

@@ -38,7 +38,7 @@ flowchart TB
         N[NPS surveys]
     end
 
-    subgraph Background [Background workers - Inngest]
+    subgraph Background [Background workers - Vercel Cron + Fireflies webhook]
         Sync[Sync jobs<br/>every 6 hours]
         Extract[LLM extraction<br/>via OpenRouter]
         Dedupe[Dedup matcher]
@@ -120,23 +120,27 @@ You can build a dashboard in plain HTML/CSS/JS. For a one-page tool it'd even be
 
 </details>
 
-### 3. The job scheduler (Inngest)
+### 3. The job scheduler (Vercel Cron + webhooks)
 
-Your 201 script ran when you typed `node extract.js`. The real thing needs to run **without you**, every few hours, even when your laptop is closed. That's a scheduled background job.
+Your 201 script ran when you typed `node extract.js`. The real thing needs to run **without you**, every few hours, even when your laptop is closed. Two patterns cover this:
 
-We use **Inngest**, which is a job scheduler that integrates with Next.js perfectly. You write a function in your code, mark it with `cron: "0 */6 * * *"` (= "every 6 hours"), and Inngest runs it for you in the cloud. It handles retries, failures, parallel execution, and gives you a UI to debug runs.
+**Vercel Cron** is built into Vercel hosting. You add a `crons` array to a `vercel.json` file in your repo with a `path` and a standard cron `schedule`. Vercel pings that URL on the schedule. The URL is a regular Next.js API route — you control what runs there. Free tier includes a generous number of cron invocations; you only pay if you hit serious volume.
+
+**Webhooks** are when the *source system* pushes data to you in real time. Fireflies, for example, will POST to a URL you give it as soon as a transcript is ready. No polling, no delay. Your API route validates the payload and processes immediately.
+
+Call Intelligence uses both:
+
+- **Fireflies**: webhook for real-time ingestion (`/api/call-intelligence/webhooks/fireflies`) + Vercel Cron every 6 hours as a fallback for missed events
+- **Intercom, HubSpot email, NPS**: Vercel Cron only (sources don't expose webhooks, or webhooks aren't worth the setup)
 
 <details markdown="block">
-<summary><strong>What problem this solves, concretely</strong></summary>
+<summary><strong>What about Inngest, Trigger.dev, AWS Lambda?</strong></summary>
 
-Without a job scheduler, you have two bad options:
+These are "real" job-orchestration platforms — they add retries, parallel execution, dependency graphs, observability UIs, dead-letter queues. Useful when your scheduled work gets complex.
 
-1. **Cron on your own server**: You rent a server, set up a cron job. Now you have to maintain a server. The job fails silently if the server dies. You learn about DevOps. You hate it.
-2. **A cloud function (AWS Lambda, etc.)**: Better, but you're configuring cloud infrastructure for what should be one line of code.
+**Call Intelligence doesn't use any of them.** Vercel Cron + plain Next.js routes was enough. We do use [Inngest](https://www.inngest.com) elsewhere in Base Camp for CRM-side workflows (deal sync, task reminders, weekly reports) where the retry/observability story matters more. But for "fetch new calls every 6 hours and run extraction," Vercel Cron is the lowest-overhead option that gets the job done.
 
-Inngest is the cloud function workflow without the configuration. You write a function. You annotate it with a schedule or an event trigger. They handle everything else. Free tier covers personal-scale usage.
-
-The Call Intelligence Fireflies sync function is literally annotated `cron: "0 */6 * * *"` and that one line replaces all the infrastructure.
+If you find yourself needing retries that survive cron restarts, or one job that fans out into hundreds of parallel tasks, *then* it's worth graduating to Inngest or similar. Most people never need to.
 
 </details>
 
@@ -230,28 +234,33 @@ This is the big jump. So far the script only runs when someone pastes a transcri
 
 ### The prompt
 
-> I want to add scheduled background syncs from Fireflies AI. Every 6 hours, the app should:
+> I want to add scheduled background syncs from Fireflies AI. Two paths:
 >
-> 1. Call the Fireflies API to fetch any new transcripts since the last sync.
-> 2. For each new transcript, extract feature requests using OpenRouter (Claude Haiku).
-> 3. Write the extracted mentions to the database.
-> 4. Update a `ci_fireflies_sync_state` row that records where the last sync left off, so the next run picks up from there.
+> 1. **Webhook (primary)** — Fireflies will POST to a URL of mine when a transcript is ready. Write the API route at `/api/call-intelligence/webhooks/fireflies` that:
+>    - Verifies a shared secret in the request headers
+>    - Parses the payload, checks the event type
+>    - Skips calls already processed (idempotency)
+>    - Fetches the full transcript from Fireflies' API
+>    - Extracts feature requests using OpenRouter (Claude Haiku)
+>    - Writes the mentions to the database
 >
-> Use Inngest for the scheduling. Walk me through:
+> 2. **Vercel Cron (fallback)** — every 6 hours, fetch any Fireflies transcripts from the last 48 hours that didn't come through the webhook. Same processing pipeline. Add the schedule to `vercel.json`:
 >
-> - Setting up an Inngest account and connecting it to my Vercel project
-> - Writing the cron-scheduled function
-> - Handling errors gracefully (if one transcript fails to extract, the others should still succeed and the failure should be logged)
-> - How to manually trigger a run from the Inngest dashboard for testing
+>    ```json
+>    {
+>      "crons": [
+>        { "path": "/api/call-intelligence/cron/fireflies-sync", "schedule": "0 0,6,12,18 * * *" }
+>      ]
+>    }
+>    ```
+>
+> Both endpoints should authenticate with a `CRON_SECRET` env var (Vercel sets this header on cron-triggered requests; the webhook validates its own Fireflies signature).
+>
+> Maintain a `ci_fireflies_sync_state` row that records where the last sync left off. Handle errors gracefully — if one transcript fails, the others should still succeed and the failure should be logged to a `ci_fireflies_sync_runs` table.
 
-Inngest's developer experience is great — there's a local dev UI that shows every job run, every input, every output. **You'll spend a lot of time in this UI.** It's how you debug your scheduled jobs.
+Vercel Cron is dead simple — the schedule lives in one file (`vercel.json`), and the handler is a plain Next.js API route. The downside vs. a real job platform: no retry-with-backoff, no fan-out parallelism, no debug UI. For Call Intelligence's volume (~hundreds of calls/week), none of that matters.
 
-<div class="image-placeholder" markdown="0">
-<div>
-<strong>Screenshot slot: the Inngest function dashboard</strong>
-A snapshot of the Call Intelligence Fireflies-sync function will go here — the list of scheduled runs, timestamps, durations, success/failure indicators. Shows "this actually runs automatically in the cloud" — the conceptual leap most 201→301 readers need to see to believe.
-</div>
-</div>
+**For visibility**, write every sync run into a `ci_*_sync_runs` table with status, item count, and error message. That table *is* your "Inngest UI" — query it to see what happened on each run. Add a `/admin/sync-health` page that reads it and you have a perfectly serviceable dashboard.
 
 <details markdown="block">
 <summary><strong>The pattern: "sync state" tables</strong></summary>
@@ -345,7 +354,8 @@ src/app/(tools)/call-intelligence/
 src/app/api/call-intelligence/
 ├── calls/                    ← Call CRUD endpoints
 ├── features/                 ← Feature query/update endpoints
-├── cron/                     ← Scheduled sync jobs (run by Inngest)
+├── cron/                     ← Scheduled sync jobs (Vercel Cron, configured in vercel.json)
+├── webhooks/                 ← Inbound webhook handlers (Fireflies real-time)
 │   ├── fireflies-sync/
 │   ├── hubspot-email-sync/
 │   ├── intercom-sync/
@@ -394,7 +404,7 @@ A scheduled job that silently fails is worse than a job that doesn't exist. You'
 
 - **Logging** — every sync run writes a row to a `*_sync_runs` table with status, item counts, and error messages. Pull these into a "Sync Health" page.
 - **Alerting** — Slack/email notification when a sync fails N times in a row, or when no items have been processed in 24 hours from a source that usually has daily activity.
-- **Dashboards** — Inngest's UI shows job runs; Supabase's logs show DB errors; OpenRouter shows API usage. Bookmark all three.
+- **Dashboards** — Vercel's deployment + cron logs show what ran when; Supabase's logs show DB errors; OpenRouter shows API usage. Bookmark all three. Your own `*_sync_runs` table is also a dashboard if you put a page on top of it.
 
 Ask Claude to add each of these in turn. Don't try to design them all at once.
 
@@ -458,13 +468,13 @@ That's a six-figure piece of software at a startup, give or take. You built it i
 
 For when you come back to this page later.
 
-- **Stack**: Claude Code + Next.js + Supabase + Inngest + OpenRouter + Vercel
+- **Stack**: Claude Code + Next.js + Supabase + Vercel Cron (+ webhooks) + OpenRouter + Vercel hosting
 - **Architecture**: data sources → scheduled extraction → DB (mentions table) → dedup → DB (canonical features) → app
 - **Big mental models**:
   - *Mentions* (raw evidence, one per source event) vs. *canonical features* (deduplicated, owned by humans)
   - *Sync state* — every source needs to know where it left off
   - *Two-stage dedup* — cheap filter, expensive LLM judgment, queue-for-review middle band
-- **Order of operations**: get data in (CSV → DB), get app deployed (Vercel), schedule the ingestion (Inngest), add dedup last
+- **Order of operations**: get data in (CSV → DB), get app deployed (Vercel), schedule the ingestion (Vercel Cron in `vercel.json`, plus a webhook for any source that supports real-time), add dedup last
 - **Mindset shift from 201**: You're no longer building a script. You're maintaining a system. The job is design, observability, and incremental improvement, not big rewrites.
 
 ---
