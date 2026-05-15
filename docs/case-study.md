@@ -38,9 +38,9 @@ I work at [LiveSchool](https://liveschoolinc.com), an EdTech company. We make a 
 
 **And we kept losing it.**
 
-A principal would mention on a renewal call that they desperately needed a custom date range in reports. The CS manager would say *"oh yeah, we've heard that a lot."* It would never reach the product team. Or it would, but with no count, no evidence, no list of which other customers had said the same thing. Product would prioritize based on the loudest internal voice rather than the data.
+A principal would mention on a renewal call that she desperately needed a custom date range in reports. The CS manager would say *"oh yeah, we've heard that a lot."* If she remembered, she'd go log it in [Canny.io](https://canny.io) later that day — Canny was the system we'd built for tracking feature requests, and [I wrote about how we set it up in 2023](https://gaingrowretain.com/kb/articles/116-how-to-create-an-effective-feedback-loop-between-customer-success-and-product-teams). If she didn't remember, the ask was gone.
 
-Our customer-facing teams were a black hole. Customers shouted requests in. Insights came out only when someone happened to remember them.
+Across our team, *most* asks didn't make it into Canny. Calls were busy, the moments came fast, and logging feedback into a separate tool was always somebody's second priority. Product was prioritizing based on the loudest internal voice rather than the data — because the data we *had* was incomplete by design.
 
 I wanted to fix that. I'm not a software engineer. I knew SQL well enough to write a basic query and HTML well enough to embarrass myself. **I had never built anything close to what Call Intelligence is now.**
 
@@ -56,7 +56,7 @@ Every week, our CS team had 30-40 calls. We were already getting auto-generated 
 
 I did that for two weeks. Maybe 60 calls total, by hand, in a Notion page.
 
-**Two weeks in, I had something Canny couldn't give us.** A list of customer asks pulled straight from call transcripts — including the ones that had been mentioned on calls but never gotten logged into Canny, plus verbatim customer quotes for the ones we already knew about. I shared it in our weekly meeting. A meaningful chunk was brand new to the team. The rest had useful context attached that we'd never captured. **That's when I knew it was worth building.**
+**Two weeks in, I had something Canny couldn't give us.** A list of customer asks pulled straight from call transcripts — including the ones that had been mentioned on calls but never gotten logged into Canny, plus verbatim customer quotes for the ones we already knew about. I shared it in a 1:1 with Matt. A meaningful chunk was brand new to him. The rest had useful context attached that we'd never captured. **That's when I knew it was worth building.**
 
 {: .story }
 > **The lesson:** I almost skipped this phase. I almost jumped straight into "build a real tool." If I had, I would have built the wrong tool — I would have optimized for things that turned out not to matter (which sources to ingest, what fields to extract) and missed the things that *did* matter (deduplication, source linking, presenting evidence cleanly). Two weeks of doing it by hand is what told me what to build.
