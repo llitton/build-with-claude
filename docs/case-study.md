@@ -94,7 +94,7 @@ I kept building, quietly.
 
 A CSV in Google Sheets is fine for a few days. Then *I* started wanting filters, sorting, the ability to mark features as "shipped" or "in progress" so I could re-run the script without losing my own state. The friction was small but it stacked.
 
-I asked Claude Code to:
+Matt pointed me at [Supabase](https://supabase.com) as the database (he was right; it ended up being one of the most consequential picks of the whole build). I asked Claude Code to:
 
 1. Spin up a Next.js app
 2. Use Supabase as the database (replacing the CSV)
