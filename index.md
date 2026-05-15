@@ -16,7 +16,7 @@ I'm the VP of Success at an EdTech company. A year ago, I'd never written a real
 
 <div class="byline">
   <div class="byline-avatar">
-    <img src="assets/images/laura-headshot.png" alt="Laura Litton" onerror="this.style.display='none'; this.parentElement.innerHTML='LL';">
+    <img src="assets/images/laura-headshot.jpg" alt="Laura Litton" onerror="this.style.display='none'; this.parentElement.innerHTML='LL';">
   </div>
   <div class="byline-text">
     <p class="byline-name">Laura Litton</p>
