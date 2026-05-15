@@ -118,11 +118,12 @@ I showed it to Matt, who thought it had potential. (And had a million ideas for 
 
 ## Phase 4: More sources, more pain (a month)
 
-Fireflies covered customer success calls. But customers also send us:
+Fireflies covered customer success calls. But customers also send us feedback through:
 
 - HubSpot emails (sales + CS threads)
 - Intercom chats (in-product support)
 - NPS surveys (every quarter, every customer)
+- Canny entries (the same board from the 2023 article — now itself a data source for the AI)
 
 Each one needed its own ingestion. Each had its own API, its own auth, its own pagination quirks. Each needed its own `*_sync_state` table to track where the last sync left off.
 
@@ -134,7 +135,7 @@ I did this incrementally, one source per weekend:
 - **Weekend 2**: Intercom sync. Easier; their API is cleaner.
 - **Weekend 3**: NPS survey ingestion. Different shape (single short text response, not a transcript), so the extraction prompt had to change. I added a `source_type` field that flows through to the prompt selection.
 
-By the end of the month, four sources flowed in automatically: Fireflies via webhook (real-time, with a Vercel Cron fallback every 6 hours), plus HubSpot, Intercom, and NPS via Vercel Cron on their own schedules. **The dashboard now had ~10,000 mentions in it.**
+By the end of the month, five sources flowed in automatically: Fireflies via webhook (real-time, with a Vercel Cron fallback every 6 hours), plus HubSpot, Intercom, NPS, and Canny via Vercel Cron on their own schedules. **The dashboard now had thousands of mentions in it.**
 
 That was the moment deduplication stopped being optional.
 
@@ -142,13 +143,13 @@ That was the moment deduplication stopped being optional.
 
 ## Phase 5: Deduplication (the hardest two weeks)
 
-With 10,000 mentions, you don't have a feature list. You have noise.
+With thousands of mentions, you don't have a feature list. You have noise.
 
 The same feature, *"parents want to see their child's full point history"*, was mentioned in 47 calls, 32 emails, 8 chats, and 14 surveys. Each was a separate row. The dashboard showed 100 entries that were all the same thing.
 
 I asked Claude to design a dedup system. Here's the actual chat history from that conversation, paraphrased:
 
-> **Me:** I have 10,000 mentions. Many are about the same underlying feature. I need to deduplicate them. What's the right approach?
+> **Me:** I have thousands of mentions. Many are about the same underlying feature. I need to deduplicate them. What's the right approach?
 >
 > **Claude:** A few options, depending on how much LLM cost you want to spend. Cheapest is fuzzy string matching. Most accurate is calling an LLM for every pair. Best balance is usually: embed every summary with a vector model, find nearest neighbors with a similarity threshold, then run an LLM judgment only on the top few candidates per mention. Want me to walk through each?
 >
@@ -180,7 +181,7 @@ The system was working for *me*. Now I started building the things that would ma
 
 ![A Slack notification from the LiveSchool Call Intelligence bot showing two new feature requests with source quotes and context](../assets/images/slack-feature-alert.png)
 *A `#feature-requests` channel notification. Every new request lands here automatically with the customer's verbatim quote and a link back to the dashboard. (Currently piped to a narrow channel; broader team rollout still in progress.)*
-- **Status workflow** (new → considering → planned → shipped)
+- **Status workflow** (new → in_progress → planned → shipped, with wont_do for declined asks)
 - **Customer-facing announcements** for shipped features
 
 Each of these was one to three evenings. The codebase had grown to maybe 5,000 lines but felt manageable because I knew the shape. I could ask Claude Code to find the right file and modify it, and it could.
@@ -191,9 +192,9 @@ This phase taught me the most about code organization. Earlier I had everything 
 
 ## Where it is today
 
-- **16 Postgres tables** (`ci_*` prefix, plus shared CRM tables)
-- **4 active data sources** flowing in automatically (Fireflies via webhook + cron fallback; HubSpot email, Intercom, NPS via Vercel Cron)
-- **~50,000 mentions** processed, deduplicated into ~3,500 canonical features
+- **26 Postgres tables** (`ci_*` prefix, plus shared CRM tables)
+- **5 active data sources** flowing in automatically (Fireflies via webhook + cron fallback; HubSpot email, Intercom, NPS, and Canny via Vercel Cron)
+- **~12,000 customer conversations** parsed by AI, **~6,000 feature mentions** extracted and deduplicated into **~2,400 canonical features**
 - **Used weekly by me; referenced by Matt; rolling out to the wider team gradually**
 - **~$40/month** in LLM costs (OpenRouter, mostly Haiku for extraction, Sonnet for dedup judgment)
 - **~$25/month** in hosting (Vercel + Supabase, both on paid tiers; cron scheduling is included)

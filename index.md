@@ -31,12 +31,12 @@ I'm the VP of Success at an EdTech company. A year ago, I'd never written a real
 
 <div class="stat-strip">
   <div class="stat-item">
-    <p class="stat-number">4</p>
+    <p class="stat-number">5</p>
     <p class="stat-label">customer data sources<br>flowing in automatically</p>
   </div>
   <div class="stat-item">
-    <p class="stat-number">50K+</p>
-    <p class="stat-label">customer mentions<br>extracted and deduplicated</p>
+    <p class="stat-number">12K+</p>
+    <p class="stat-label">customer conversations<br>parsed by AI</p>
   </div>
   <div class="stat-item">
     <p class="stat-number">0</p>
@@ -103,7 +103,7 @@ Years into running that system, I watched it get partly skipped every single wee
 
 </div>
 
-**Call Intelligence is the next version of that feedback loop.** Instead of asking humans to manually log feature requests, it reads every customer conversation automatically (Fireflies transcripts, HubSpot emails, Intercom chats, NPS surveys) and uses Claude to extract every request, label it, deduplicate it against past mentions, and put it in front of the Product team with verbatim evidence.
+**Call Intelligence is the next version of that feedback loop.** Instead of asking humans to manually log feature requests, it reads every customer conversation automatically (Fireflies transcripts, HubSpot emails, Intercom chats, NPS surveys, and Canny entries) and uses Claude to extract every request, label it, deduplicate it against past mentions, and put it in front of the Product team with verbatim evidence.
 
 The bottleneck moves from *"do humans remember to log this?"* to *"do customers say it at all?"* That's a much smaller, much more solvable problem.
 
@@ -124,7 +124,7 @@ flowchart LR
     E --> F[Decide what<br/>to build]
 ```
 
-Calls come in from four sources (Fireflies, HubSpot emails, Intercom chats, NPS surveys). Claude reads each one and pulls out structured items. A simple matching algorithm groups duplicate mentions of the same feature. The dashboard shows the product team what customers actually want, with evidence.
+Calls come in from five sources (Fireflies, HubSpot emails, Intercom chats, NPS surveys, and Canny — yes, the same Canny board from the 2023 article also feeds into the AI now). Claude reads each one and pulls out structured items. A simple matching algorithm groups duplicate mentions of the same feature. The dashboard shows the product team what customers actually want, with evidence.
 
 That's it. The whole thing.
 

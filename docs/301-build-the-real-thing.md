@@ -198,11 +198,11 @@ That's a real app. You can show it to a coworker.
 
 For reference (don't copy exactly; your needs differ, but it's useful to see the real shape):
 
-- `ci_feature_requests`: canonical deduplicated features. Columns: `id`, `summary`, `detail`, `category`, `status` ("new", "in_progress", "shipped"), `owner_id`, `created_at`, `updated_at`.
-- `ci_feature_request_mentions`: every individual mention. Columns: `id`, `feature_request_id` (FK), `source` ("fireflies", "hubspot", "intercom", "nps"), `source_id`, `customer_company`, `customer_email`, `quote`, `urgency`, `created_at`.
-- `ci_feature_dedupe_candidates`: pairs of features the matching algorithm thinks might be duplicates, awaiting human review. Columns: `id`, `feature_a_id`, `feature_b_id`, `similarity_score`, `status` ("pending", "merged", "rejected").
+- `ci_feature_requests`: canonical deduplicated features. Key columns: `id`, `request_text`, `request_context`, `area`, `status` ("new", "in_progress", "planned", "shipped", "wont_do"), `decision_owner_id`, `customer_count`, `mention_count`, `total_arr`, `effort_estimate`, `embedding` (pgvector), `created_at`, `updated_at`. Plus a stack of status timestamps and email-send tracking columns (prebuild/postship/skipped) for the announcement flow.
+- `ci_feature_request_mentions`: every individual mention. Key columns: `id`, `feature_request_id` (FK), `source_type` ("fireflies", "hubspot_email", "intercom", "nps", "canny"), `source_id`, `account_name`, `contact_email`, `verbatim_quote`, `urgency`, `arr`, `segment`, `lifecycle_stage`, `who_feels_this`, `extraction_confidence`, `created_at`.
+- `ci_feature_dedupe_candidates`: pairs of features the matching algorithm thinks might be duplicates. Columns: `id`, `feature_id_1`, `feature_id_2`, `similarity`, `created_at`. The merge/keep-separate/skip decisions are recorded in a separate `ci_feature_dedupe_decisions` table so the dedupe history is auditable.
 
-There are 13 more tables for source-specific sync state (where each source left off), HubSpot caching, Slack notifications, and admin auth. You don't need most of those until you're integrating real sources.
+There are ~20 more `ci_*` tables for source-specific sync state (where each source left off), per-source "sync runs" logs (for observability), HubSpot caching, Slack event tracking, NPS submissions, autopilot call records, admin auth, and an allowed-emails table for external collaborators. You don't need most of those until you're integrating real sources.
 
 </details>
 
