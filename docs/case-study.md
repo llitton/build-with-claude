@@ -180,7 +180,6 @@ The system was working for *me*. Now I started building the things that would ma
 
 ![A Slack notification from the LiveSchool Call Intelligence bot showing two new feature requests with source quotes and context](../assets/images/slack-feature-alert.png)
 *A `#feature-requests` channel notification. Every new request lands here automatically with the customer's verbatim quote and a link back to the dashboard. (Currently piped to a narrow channel; broader team rollout still in progress.)*
-- **Owner assignment** so each feature has someone on the team tracking it
 - **Status workflow** (new → considering → planned → shipped)
 - **Customer-facing announcements** for shipped features
 
