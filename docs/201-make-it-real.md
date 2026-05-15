@@ -208,8 +208,8 @@ Hit Enter. Claude Code will start describing what it's going to do, then propose
 {: .tip }
 > **The single most important habit:** read what Claude Code proposes before approving it. You don't need to understand every line of code. You need to understand the *shape* — what file is this, what does it do, what does each section accomplish. Treat Claude Code like a smart coworker pair-programming with you. Ask "why" liberally.
 
-![Illustrative Claude Code terminal session: a user prompt asking Claude to build a Node script, Claude's numbered plan, and a permission prompt to approve writing package.json](../assets/images/claude-code-session.svg)
-*An illustrative Claude Code session. The exact wording will vary, but the pattern is the same: you describe the goal, Claude proposes a plan, you approve each action.*
+![An illustrative macOS Terminal window running Claude Code, showing a welcome banner, a user prompt asking to build a Node script, a numbered plan from Claude, and an inline permission prompt asking whether to create package.json](../assets/images/claude-code-session.svg)
+*What a real Claude Code session looks like in your Terminal. The exact wording will vary, but the pattern is the same: you describe the goal, Claude proposes a plan, you approve each action with a number (1 = Yes).*
 
 ### Watch the files appear
 

@@ -98,7 +98,7 @@ By the end:
 - Google sign-in (only `@liveschoolinc.com` could log in)
 - A table of features with mention counts, last-seen date, source links, and category filters
 
-**I still didn't broadcast it.** I quietly showed it to leadership — the one person I trusted to react honestly to a half-built thing — and they started referencing it in our product conversations. *"What does Call Intelligence say about that one?"* became a recurring beat. That was the signal that this was worth more investment.
+**I still didn't broadcast it.** I quietly showed it to leadership — the one person I trusted to react honestly to a half-built thing — and they started referencing it in our product conversations. That was the signal that this was worth more investment.
 
 Broader team adoption is still rolling out as I write this. It's not the moment-of-launch narrative I expected to be writing — it's slower, more deliberate, more "did anyone find this useful this week?" The honest version is: a tool only matters once people actually use it, and that takes longer than building it.
 

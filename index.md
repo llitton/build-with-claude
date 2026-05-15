@@ -142,4 +142,8 @@ Ready? [Start with the 101 →](docs/101-your-first-ai-tool/){: .btn .btn-primar
 
 ---
 
-<small>Source for this guide and Call Intelligence are both on <a href="https://github.com/llitton">GitHub</a>. Questions? Open an issue.</small>
+<small>
+Questions or want to chat? Find me on <a href="https://www.linkedin.com/in/lauralitton/">LinkedIn</a>, email <a href="mailto:laura@liveschoolinc.com">laura@liveschoolinc.com</a>, or <a href="https://liveschoolapp.com/bc/book/chat-with-laura-liveschool">grab time on my calendar</a> — which I also built with Claude Code.
+<br><br>
+Source for this guide is on <a href="https://github.com/llitton/build-with-claude">GitHub</a>.
+</small>
