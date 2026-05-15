@@ -83,7 +83,7 @@ I ran the script. It produced a 400-row CSV. I opened it in Google Sheets. **I d
 
 They mostly did. There was noise. Sometimes Claude would tag the same thing two different ways across two calls, or split one ask into three. But the bones were right. And every time I scanned the sheet I'd find at least one ask we'd genuinely never logged.
 
-I kept building, quietly.
+I kept building.
 
 ![An illustrative early features.csv opened in Google Sheets, with unformatted rows of feature requests, urgencies, schools, and verbatim quotes](../assets/images/first-features-csv.svg)
 *Illustrative. The first features.csv. Crude. No formatting, no filters, no summary view. The novelty wasn't a feature list (we had one in Canny). It was capturing the asks from calls and emails that had never made it into Canny, and pairing every entry with a verbatim customer quote.*
