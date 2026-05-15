@@ -79,9 +79,9 @@ I kept building, quietly.
 
 ---
 
-## Phase 3: The first dashboard (a week of evenings)
+## Phase 3: The first dashboard (a week of evenings, still private)
 
-A CSV in Google Sheets is fine for a week. Then people want filters, sorting, the ability to mark features as "shipped" or "in progress," a place to add comments.
+A CSV in Google Sheets is fine for a few days. Then *I* started wanting filters, sorting, the ability to mark features as "shipped" or "in progress" so I could re-run the script without losing my own state. The friction was small but it stacked.
 
 I asked Claude Code to:
 
@@ -98,10 +98,12 @@ By the end:
 - Google sign-in (only `@liveschoolinc.com` could log in)
 - A table of features with mention counts, last-seen date, source links, and category filters
 
-I posted the URL in #product. Within 48 hours, three different teams were using it.
+**I still didn't broadcast it.** I quietly showed it to leadership — the one person I trusted to react honestly to a half-built thing — and they started referencing it in our product conversations. *"What does Call Intelligence say about that one?"* became a recurring beat. That was the signal that this was worth more investment.
+
+Broader team adoption is still rolling out as I write this. It's not the moment-of-launch narrative I expected to be writing — it's slower, more deliberate, more "did anyone find this useful this week?" The honest version is: a tool only matters once people actually use it, and that takes longer than building it.
 
 {: .story }
-> **The lesson:** I had a small panic-attack moment in week two when somebody asked me to "add a way to assign each feature to an internal owner so we can track who's responsible for chasing it down." It sounded like a "real software" feature. I assumed it would take me weeks. It took me 45 minutes. Claude Code scaffolded an `owner_id` column, a select dropdown, an API route to update it, and the UI to show owners in the dashboard. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
+> **The lesson:** I had a small panic-attack moment after leadership asked if there was "a way to assign each feature to an internal owner so we can track who's responsible for chasing it down." It sounded like a "real software" feature. I assumed it would take me weeks. It took me 45 minutes. Claude Code scaffolded an `owner_id` column, a select dropdown, an API route to update it, and the UI to show owners in the dashboard. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
 
 ---
 
@@ -162,13 +164,13 @@ The triage UI was the unexpectedly satisfying part. I'd sit down with a coffee, 
 
 ## Phase 6: Polish, integrations, Slack
 
-The system was working. Now it had to fit into how the team actually worked.
+The system was working for *me*. Now I started building the things that would make it work for other people — even before those people were actively using it. Some of it was speculative ("when a wider rollout happens, we'll want this"), some of it was responding to actual asks from leadership.
 
 - **Slack notifications** when a feature crosses 5, 10, or 25 mentions
 - **Email integration** so the team could send "we shipped what you asked for" announcements directly from the feature detail page
 
-![Slack notification from the LiveSchool Call Intelligence bot showing two new feature requests with source quotes and context](../assets/images/slack-feature-alert.png)
-*The product team's #feature-requests channel. Every new request lands here automatically with the customer's verbatim quote and a link back to the dashboard.*
+![A Slack notification from the LiveSchool Call Intelligence bot showing two new feature requests with source quotes and context](../assets/images/slack-feature-alert.png)
+*A `#feature-requests` channel notification. Every new request lands here automatically with the customer's verbatim quote and a link back to the dashboard. (Currently piped to a narrow channel — broader team rollout still in progress.)*
 - **Owner assignment** so each feature has someone on the team tracking it
 - **Status workflow** (new → considering → planned → shipped)
 - **Customer-facing announcements** for shipped features
@@ -182,13 +184,13 @@ This phase taught me the most about code organization. Earlier I had everything 
 ## Where it is today
 
 - **16 Postgres tables** (`ci_*` prefix, plus shared CRM tables)
-- **4 active data sources** with scheduled sync every 6 hours
+- **4 active data sources** flowing in automatically (Fireflies via webhook + cron fallback; HubSpot email, Intercom, NPS via Vercel Cron)
 - **~50,000 mentions** processed, deduplicated into ~3,500 canonical features
-- **Used weekly** by product, customer success, and sales teams
+- **Used weekly by me; referenced by leadership; rolling out to the wider team gradually**
 - **~$40/month** in LLM costs (OpenRouter, mostly Haiku for extraction, Sonnet for dedup judgment)
 - **~$25/month** in hosting (Vercel + Supabase, both on paid tiers; cron scheduling is included)
 
-It's not a moonshot. It's a real internal tool that produces real decisions every week. **That's the bar I wish people aimed at more.**
+It's not a moonshot. It's not even fully launched. It's a working internal tool that's already changing how I think about product feedback — and that I'm steadily wiring into how the rest of the team thinks about it too. **That's the bar I wish people aimed at more.** Most internal tools don't need to be perfect on day one; they need to be useful to *one person* on day one, and improve from there.
 
 ---
 
