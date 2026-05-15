@@ -112,7 +112,7 @@ By the end:
 I showed it to Matt, who thought it had potential. (And had a million ideas for how it could be improved!)
 
 {: .story }
-> **The lesson:** I had a small panic-attack moment after Matt asked if there was "a way to assign each feature to an internal owner so we can track who's responsible for chasing it down." It sounded like a "real software" feature. I assumed it would take me weeks. It took me 45 minutes. Claude Code scaffolded an `owner_id` column, a select dropdown, an API route to update it, and the UI to show owners in the dashboard. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
+> **The lesson:** Matt asked for a way to sort the dashboard by most mentions. I had a small panic-attack moment, assuming it would take me weeks. It took 45 minutes. Claude Code added the sort, the API change, and the UI tweak in a single prompt. **Everything in software seems harder from the outside than it is from the inside, once you have Claude.**
 
 ---
 
