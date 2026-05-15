@@ -289,7 +289,7 @@ Open `features.csv` (double-click it in Finder to open in Excel/Numbers/Google S
 You just built a tool.
 
 {: .story }
-> **From the build:** This is the moment in the Call Intelligence build where I realized this was actually going to work. I dropped two months of LiveSchool support emails into the folder, ran the script overnight, and woke up to a 4,000-row spreadsheet of every feature request our customers had ever asked for. I had been looking for that information for two years and never had it. One night of code (well, Claude's code) and there it was.
+> **From the build:** This is the moment in the Call Intelligence build where I realized this was actually going to work. I dropped two months of LiveSchool support emails into the folder, ran the script overnight, and woke up to thousands of rows of customer asks — including ones we'd already logged in Canny, but also a long tail of asks that had been mentioned on calls or in emails and never made it into a ticket. That missing tail was the thing I'd been chasing for two years. One night of code (well, Claude's code) and there it was.
 
 ---
 

@@ -45,7 +45,7 @@ Every week, our CS team had 30-40 calls. We were already getting auto-generated 
 
 I did that for two weeks. Maybe 60 calls total, by hand, in a Notion page.
 
-**Two weeks in, I had something the product team had never seen before.** A list of *every customer ask*, with the customer quoted verbatim, grouped by theme. I shared it in our weekly product meeting. Half the asks were ones the team had never heard of. **That's when I knew it was worth building.**
+**Two weeks in, I had something Canny couldn't give us.** A list of customer asks pulled straight from call transcripts — including the ones that had been mentioned on calls but never gotten logged into Canny, plus verbatim customer quotes for the ones we already knew about. I shared it in our weekly meeting. A meaningful chunk was brand new to the team. The rest had useful context attached that we'd never captured. **That's when I knew it was worth building.**
 
 {: .story }
 > **The lesson:** I almost skipped this phase. I almost jumped straight into "build a real tool." If I had, I would have built the wrong tool — I would have optimized for things that turned out not to matter (which sources to ingest, what fields to extract) and missed the things that *did* matter (deduplication, source linking, presenting evidence cleanly). Two weeks of doing it by hand is what told me what to build.
@@ -68,12 +68,14 @@ That weekend I:
 
 **The first version was about 80 lines of code.** It took me about 6 hours to get it working end-to-end, including the 4 hours I spent confused about why my `.env` file wasn't being read. (Spoiler: it was named `env`, not `.env`. The leading dot matters.)
 
-I ran the script. It produced a 400-row CSV. I opened it in Google Sheets. I shared the sheet in our #product channel.
+I ran the script. It produced a 400-row CSV. I opened it in Google Sheets. **I did not share it with the team.** I wanted to sit with it for a week first — see whether the extractions held up, see what was missing from Canny vs. what was duplicated, see whether the categories Claude assigned matched the categories my own brain would have used.
 
-People lost their minds. *"How did you make this? Can we filter by school?"* The script ran once, by hand, on my laptop. There was no app. There was no dashboard. It was a CSV. It was already useful enough to be a thing people wanted.
+They mostly did. There was noise — sometimes Claude would tag the same thing two different ways across two calls, or split one ask into three. But the bones were right. And every time I scanned the sheet I'd find at least one ask we'd genuinely never logged.
+
+I kept building, quietly.
 
 ![An illustrative early features.csv opened in Google Sheets, with unformatted rows of feature requests, urgencies, schools, and verbatim quotes](../assets/images/first-features-csv.svg)
-*Illustrative — the first features.csv. Crude, no formatting, no filters, no summary view. Just rows of customer asks with the verbatim quote attached. It was already more than we'd ever had.*
+*Illustrative — the first features.csv. Crude, no formatting, no filters, no summary view. The novelty wasn't a feature list (we had one in Canny). It was capturing the asks from calls and emails that had never made it into Canny — and pairing every entry with a verbatim customer quote.*
 
 ---
 
