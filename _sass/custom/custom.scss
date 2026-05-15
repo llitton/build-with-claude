@@ -9,16 +9,29 @@ $warning-amber: #f59e0b;
 $danger-red: #ef4444;
 
 // ----- Layout tweaks -----
-.main-content {
-  max-width: 1080px;
+//
+// Just the Docs has a quirky default where the sidebar auto-expands on wide
+// screens (width: calc((100% - 66.5rem) / 2 + 16.5rem)) and the main content
+// is capped at 50rem (800px). On a 1995px monitor this produces a ~730px
+// sidebar with a centered 800px content column — huge wasted margins on both
+// sides. We pin the sidebar at a sensible fixed width and let content breathe.
+
+@media (min-width: 50rem) {
+  .side-bar {
+    width: 16.5rem !important;
+    min-width: 16.5rem !important;
+  }
+
+  .side-bar + .main {
+    margin-left: 16.5rem !important;
+    max-width: 65rem !important; // ~1040px — wider than default 50rem, still readable
+  }
 }
 
-// Home page can breathe a bit wider — the level cards and stat strip benefit
-// from more room. We detect the home page by the permalink "/" rendering to a
-// layout where the page has no `nav_order` parent path. Cleanest hook is the
-// hero presence:
-.main-content:has(.byline) {
-  max-width: 1200px;
+// Home page can go wider — the level cards + stat strip benefit from more room.
+// Detected by the presence of the .byline element (only on home).
+.main:has(.byline) {
+  max-width: 75rem !important; // ~1200px
 }
 
 .callout.callout-story {
