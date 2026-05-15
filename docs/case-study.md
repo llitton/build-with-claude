@@ -42,7 +42,7 @@ A principal would mention on a renewal call that she desperately needed a custom
 
 Across our team, *most* asks didn't make it into Canny. Calls were busy, the moments came fast, and logging feedback into a separate tool was always somebody's second priority. Product was prioritizing based on the loudest internal voice rather than the data, because the data we *had* was incomplete by design.
 
-I wanted to fix that. I'm not a software engineer. I knew SQL well enough to write a basic query and HTML well enough to embarrass myself. **I had never built anything close to what Call Intelligence is now.**
+I wanted to fix that. Matt told me to try building it myself. I'm not a software engineer. I knew SQL well enough to write a basic query and HTML well enough to embarrass myself. **I had never built anything close to what Call Intelligence is now.** But he said to try anyway.
 
 ---
 
